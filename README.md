@@ -1,12 +1,3 @@
-Đây là bản nháp file **`README.md`** chuyên nghiệp, đầy đủ và tuân thủ đúng yêu cầu nộp bài của Milestone 2.
-
-File này được viết bằng tiếng Anh (ngôn ngữ tiêu chuẩn cho các repository kỹ thuật), nhưng bạn có thể dịch sang tiếng Việt nếu chương trình học yêu cầu nghiêm ngặt về ngôn ngữ.
-
-Bạn hãy copy nội dung này vào file `README.md` nằm ở thư mục gốc `MSSV/README.md`.
-
----
-
-```markdown
 # Introduction to Data Science - Milestone 2
 ## Hierarchical Parsing and Reference Matching Pipeline
 
