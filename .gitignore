@@ -1,0 +1,64 @@
+# --- Python & Runtime ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- Virtual Environment ---
+# Tên thư mục môi trường ảo phổ biến
+venv/
+env/
+.env
+.venv/
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# --- Project Data (QUAN TRỌNG) ---
+# Không bao giờ push dữ liệu thô và kết quả lên Git
+data_raw/
+data_output/
+output/
+
+# Bỏ qua các file dữ liệu nếu lỡ nằm ngoài thư mục data
+*.json
+*.bib
+*.tex
+*.pdf
+
+# Ngoại lệ: Giữ lại các file json/pdf cấu hình hoặc báo cáo nếu nằm trong src (nếu cần)
+# Nhưng theo cấu trúc đã bàn, data nằm riêng nên ignore global là an toàn nhất.
+# Nếu muốn track Report.pdf, hãy dùng lệnh `git add -f Report.pdf`
+
+# --- Submission Files ---
+# File nộp bài (zip theo MSSV)
+*.zip
+*.rar
+*.7z
+
+# --- IDE Settings (VS Code, PyCharm...) ---
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
