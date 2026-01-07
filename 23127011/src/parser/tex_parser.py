@@ -3,7 +3,6 @@ import re
 import uuid
 import json
 from src.utils.tex_cleaner import LatexCleaner
-
 class LatexFlattener:
     """
     A class to flatten LaTeX documents by recursively merging all included files into a single structure.
@@ -15,6 +14,7 @@ class LatexFlattener:
         root_dir (str): Directory containing the root LaTeX file.
         paper_id (str): Identifier for the paper being processed.
         version (str): Version identifier for the paper.
+        remove_references (bool): Flag to control whether to remove bibliography sections.
         merged_files (list): List of relative paths of files successfully merged.
         missing_files (list): List of relative paths of files that could not be found.
     Methods:
@@ -54,16 +54,18 @@ class LatexFlattener:
             Returns:
                 str: Flattened content with markers indicating file boundaries.
     Example:
-        >>> flattener = LatexFlattener('/path/to/main.tex', 'paper123', 'v1')
+        >>> flattener = LatexFlattener('/path/to/main.tex', 'paper123', 'v1', remove_references=True)
         >>> result = flattener.flatten()
         >>> print(result['metadata']['merged_count'])
     """
-    def __init__(self, root_file_path, paper_id, version):
+    def __init__(self, root_file_path, paper_id, version, remove_references=True):
         self.root_path = os.path.abspath(root_file_path)
         self.root_dir = os.path.dirname(self.root_path)
         self.paper_id = paper_id
         self.version = version
+        self.remove_references = remove_references
         print(f"📝 Khởi tạo LatexFlattener cho Paper: {self.paper_id}, Version: {self.version}")
+        print(f"   Remove references: {'Yes' if self.remove_references else 'No'}")
         self.merged_files = [] # Danh sách các file đã gộp thành công
         self.missing_files = [] # Danh sách các file bị thiếu
 
@@ -83,7 +85,8 @@ class LatexFlattener:
                 "total_length": len(full_content),
                 "merged_count": len(self.merged_files),
                 "merged_files": self.merged_files,
-                "missing_files": self.missing_files
+                "missing_files": self.missing_files,
+                "remove_references": self.remove_references
             },
             "content": full_content
         }
@@ -103,6 +106,9 @@ class LatexFlattener:
 
     def _remove_bibliography(self, text):
         """Loại bỏ phần tài liệu tham khảo theo yêu cầu"""
+        if not self.remove_references:
+            return text
+        
         text = re.sub(r'\\bibliography\{[^}]+\}', '', text)
         text = re.sub(r'\\printbibliography', '', text)
         text = re.sub(r'\\begin\{thebibliography\}.*?\\end\{thebibliography\}', '', text, flags=re.DOTALL)
@@ -127,7 +133,7 @@ class LatexFlattener:
         
         self.merged_files.append(rel_path)
 
-        # 3. Làm sạch sơ bộ (Xóa comment gốc + Xóa Bib)
+        # 3. Làm sạch sơ bộ (Xóa comment gốc + Xóa Bib nếu cờ bật)
         content = self._remove_comments(raw_content)
         content = self._remove_bibliography(content)
 
