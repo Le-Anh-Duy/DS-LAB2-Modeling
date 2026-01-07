@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaTeX Tree Visualizer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-bottom: 2px solid #eee;
+            text-align: center;
+        }
+
+        input[type="file"] {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            background: #fafafa;
+        }
+
+        #tree-container {
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        /* Tree Node Styles */
+        .node {
+            margin-left: 20px;
+            border-left: 1px solid #ddd;
+            position: relative;
+        }
+
+        .node-content {
+            padding: 8px;
+            margin: 4px 0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            background: #fff;
+            transition: background 0.2s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .node-content:hover {
+            background: #f0f7ff;
+            border-color: #cce5ff;
+        }
+
+        /* Toggle Button */
+        .toggle {
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .toggle::after { content: '▼'; font-size: 10px; }
+        .node.collapsed > .children { display: none; }
+        .node.collapsed > .node-content .toggle::after { content: '▶'; }
+        .node.is-leaf > .node-content .toggle { opacity: 0; cursor: default; }
+
+        /* Node Types Styling */
+        .badge {
+            font-size: 0.75em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 10px;
+            text-transform: uppercase;
+            font-weight: 600;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .type-document { border-left: 4px solid #333; }
+        .badge-document { background: #333; color: #fff; }
+
+        .type-section, .type-chapter, .type-part { border-left: 4px solid #3498db; }
+        .badge-section, .badge-chapter { background: #3498db; color: #fff; }
+        .badge-subsection { background: #5dade2; color: #fff; }
+
+        .type-paragraph { border-left: 4px solid #2ecc71; }
+        .badge-paragraph { background: #2ecc71; color: #fff; }
+
+        .type-title, .type-author, .type-abstract { border-left: 4px solid #9b59b6; }
+        .badge-title, .badge-author, .badge-abstract { background: #9b59b6; color: #fff; }
+
+        .type-equation { border-left: 4px solid #e74c3c; background: #fdf2f0; }
+        .badge-equation { background: #e74c3c; color: #fff; }
+
+        .type-figure, .type-table { border-left: 4px solid #f39c12; background: #fef9e7; }
+        .badge-figure, .badge-table { background: #f39c12; color: #fff; }
+        
+        .type-sentence { border-left: 2px dashed #95a5a6; border-bottom: none; }
+        .badge-sentence { background: #95a5a6; color: #fff; }
+
+        .type-list { border-left: 4px solid #1abc9c; }
+        .badge-list { background: #1abc9c; color: #fff; }
+
+        .title-text {
+            font-weight: 500;
+        }
+
+        .details {
+            font-size: 0.9em;
+            color: #666;
+            margin-left: 10px;
+            font-style: italic;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 500px;
+            opacity: 0.7;
+        }
+
+        /* Stats Panel */
+        #stats {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .stat-item {
+            background: #eee;
+            padding: 5px 15px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌳 LaTeX Structure Tree Visualizer</h1>
+        
+        <div class="controls">
+            <input type="file" id="fileInput" accept=".json">
+            <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+                Upload the <code>tree_*.json</code> file generated by the parser.
+            </p>
+        </div>
+
+        <div id="stats"></div>
+        <div id="tree-container"></div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const treeContainer = document.getElementById('tree-container');
+        const statsContainer = document.getElementById('stats');
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                try {
+                    const data = JSON.parse(event.target.result);
+                    
+                    // Handle both simple root node exports and {nodes, edges} graph exports
+                    // The print_tree_to_file can output different formats depending on implementation versions.
+                    // Assuming we are reconstructing from a "Graph" format or provided a "Root object".
+                    
+                    let root = null;
+
+                    if (data.nodes && data.edges) {
+                        // Reconstruct tree from flat nodes + edges list
+                        root = reconstructTree(data.nodes, data.edges);
+                    } else if (data.id && data.children) {
+                        // It's already a tree object
+                        root = data;
+                    } else if (data.children) {
+                         // Some other tree form
+                         root = data;
+                    }
+
+                    if (root) {
+                        renderStats(data);
+                        treeContainer.innerHTML = '';
+                        treeContainer.appendChild(createNodeElement(root));
+                    } else {
+                        alert('Invalid JSON format. Could not find root.');
+                    }
+
+                } catch (error) {
+                    console.error(error);
+                    alert('Error parsing JSON file.');
+                }
+            };
+            reader.readAsText(file);
+        });
+
+        function reconstructTree(nodes, edges) {
+            const nodeMap = new Map();
+            // 1. Create all nodes
+            nodes.forEach(n => {
+                nodeMap.set(n.id, { ...n, children: [] });
+            });
+
+            // 2. Link edges
+            const childrenIds = new Set();
+            edges.forEach(edge => {
+                const parent = nodeMap.get(edge.from);
+                const child = nodeMap.get(edge.to);
+                if (parent && child) {
+                    parent.children.push(child);
+                    childrenIds.add(edge.to);
+                }
+            });
+
+            // 3. Find root (node not in childrenIds)
+            const root = nodes.find(n => !childrenIds.has(n.id));
+            if (root) return nodeMap.get(root.id);
+            return nodeMap.values().next().value; // Fallback
+        }
+
+        function createNodeElement(node) {
+            const li = document.createElement('div');
+            li.className = `node type-${node.type} ${(!node.children || node.children.length === 0) ? 'is-leaf' : ''}`;
+            
+            // Header/Content Row
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'node-content';
+            
+            // Toggle Button
+            const toggle = document.createElement('span');
+            toggle.className = 'toggle';
+            toggle.onclick = (e) => {
+                e.stopPropagation();
+                li.classList.toggle('collapsed');
+            };
+            contentDiv.appendChild(toggle);
+
+            // Badge
+            const badge = document.createElement('span');
+            badge.className = `badge badge-${node.type}`;
+            badge.textContent = node.type;
+            contentDiv.appendChild(badge);
+
+            // Title
+            const titleSpan = document.createElement('span');
+            titleSpan.className = 'title-text';
+            titleSpan.textContent = node.title || '(No Title)';
+            contentDiv.appendChild(titleSpan);
+
+            // Preview Details (Content snippet)
+            if (node.content || node.raw_content) {
+                const preview = document.createElement('span');
+                preview.className = 'details';
+                const txt = node.content || node.raw_content;
+                preview.textContent = txt.replace(/\n/g, ' ').substring(0, 80) + (txt.length > 80 ? '...' : '');
+                contentDiv.appendChild(preview);
+            }
+            
+            // Click to expand/collapse
+            contentDiv.onclick = () => {
+                 if (node.children && node.children.length > 0) {
+                     li.classList.toggle('collapsed');
+                 }
+            };
+
+            li.appendChild(contentDiv);
+
+            // Children Container
+            if (node.children && node.children.length > 0) {
+                const childrenContainer = document.createElement('div');
+                childrenContainer.className = 'children';
+                
+                node.children.forEach(child => {
+                    childrenContainer.appendChild(createNodeElement(child));
+                });
+                li.appendChild(childrenContainer);
+            }
+
+            return li;
+        }
+
+        function renderStats(data) {
+            let nodeCount = 0;
+            if (data.metadata && data.metadata.total_nodes) {
+                nodeCount = data.metadata.total_nodes;
+            } else if (data.nodes) {
+                nodeCount = data.nodes.length;
+            }
+            
+            if (nodeCount) {
+                statsContainer.innerHTML = `
+                    <div class="stat-item">📊 Total Nodes: <strong>${nodeCount}</strong></div>
+                    <div class="stat-item">📄 Paper ID: <strong>${data.nodes ? data.nodes[0].id.split('-')[0] : 'N/A'}</strong></div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

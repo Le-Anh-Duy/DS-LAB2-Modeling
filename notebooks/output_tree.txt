@@ -1,0 +1,3449 @@
+{
+  "nodes": [
+    {
+      "id": "2403-00534-2403-00534v1-document-601ca67c-ffb5-4615-80b2-9a76803f50d5",
+      "type": "document",
+      "title": "Root Document",
+      "level": 0,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-title-108b55bc-e6b0-4e7c-a056-83987adb5d7d",
+      "type": "title",
+      "title": "N-representable one-electron reduced density matrix reconstruction with frozen core electrons",
+      "level": 99,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-authors-aa9317ed-7865-4316-b217-cc02e9663847",
+      "type": "author",
+      "title": "Sizhuo Yu, Jean-Michel Gillet",
+      "level": 99,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-abstract-986d7935-4dd0-4a93-83f7-9bed7b630e89",
+      "type": "abstract",
+      "title": "Abstract",
+      "level": 2,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b9c1f5ea-b0d9-4ee5-bd91-6ad343267a87",
+      "type": "sentence",
+      "title": "Recent advances in quantum cry...",
+      "level": 99,
+      "content": "Recent advances in quantum crystallography have shown that, beyond conventional charge density refinement, a one-electron reduced density matrix (1-RDM) satisfying N-representability conditions can be reconstructed using jointly experimental X-ray structure factors (XSF) and directional Compton profiles (DCP) through semi-definite programming."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-0ddc7a75-02c7-49d7-9cf5-e68f16db81ee",
+      "type": "sentence",
+      "title": "So far, such reconstruction me...",
+      "level": 99,
+      "content": "So far, such reconstruction methods for 1-RDM, not constrained to idempotency, had been tested only on a toy model system (CO$_2$)."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-97a746ef-2a6d-41aa-86e9-a1787ae389f9",
+      "type": "sentence",
+      "title": "In this work, a new method is ...",
+      "level": 99,
+      "content": "In this work, a new method is assessed on crystalline urea (CO(NH$_2$)$_2$) using static (0 K) and dynamic (50 K) artificial-experimental data."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b763ffa3-0f88-433e-a55f-822c81f75660",
+      "type": "sentence",
+      "title": "An improved model, including s...",
+      "level": 99,
+      "content": "An improved model, including symmetry constraints and frozen-core electron contribution, is introduced to better handle the increasing system complexity."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-38d9069f-7eef-4f51-a851-3aabf0b58b17",
+      "type": "sentence",
+      "title": "Reconstructed 1-RDMs, deformat...",
+      "level": 99,
+      "content": "Reconstructed 1-RDMs, deformation densities and DCP anisotropy are analyzed, and it is demonstrated that the changes in the model significantly improve the reconstruction's quality against insufficient information and data corruption."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-940f3758-327c-4d1c-8459-db856c578272",
+      "type": "sentence",
+      "title": "The robustness of the model an...",
+      "level": 99,
+      "content": "The robustness of the model and the strategy are thus shown to be well-adapted to address the reconstruction problem from actual experimental scattering data."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "type": "section",
+      "title": "Introduction",
+      "level": 3,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-24470480-df73-4974-816e-5a86a3e49d00",
+      "type": "sentence",
+      "title": "\\label{sec-intro} While N-elec...",
+      "level": 99,
+      "content": "While N-electron wave-functions provide the most complete and exact description of electronic structure in crystals, their experimental determination is still out of reach due to their exponentially large complexity for real systems."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-3c98655d-a0b7-461a-9cfa-b2791646add7",
+      "type": "sentence",
+      "title": "Moreover, in Coulson's words: ...",
+      "level": 99,
+      "content": "Moreover, in Coulson's words: \"a conventional many-electron wave-function tells us more than we need to know.\" It is then worth considering the one(two)-electron reduced density matrices (1,2-RDM) as compact substitutes for wave-functions since they involve significantly fewer parameters."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-f309882e-6d7b-4e3c-b2d5-364ae2700123",
+      "type": "sentence",
+      "title": "As of today, the incompletenes...",
+      "level": 99,
+      "content": "As of today, the incompleteness of N-representability conditions, which ensure that a reduced density matrix can be associated with a complete N-body density matrix, and the lack of experimental observables with sufficient information content still pose daunting obstacles to the reconstruction of 2-RDMs. Therefore, 1-RDMs, which do not suffer from the same impediment and still contain valuable quantum mechanical information, are considered suitable candidates for modelling electron behaviour from experimental data."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-6bbf7e10-8d24-458b-a80d-02d72d92d04a",
+      "type": "sentence",
+      "title": "The reconstruction process, ho...",
+      "level": 99,
+      "content": "The reconstruction process, however, remains a challenging task."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-5bed472a-ac1b-41f2-99c6-e3684a45cc8f",
+      "type": "sentence",
+      "title": "Firstly, N-representability co...",
+      "level": 99,
+      "content": "Firstly, N-representability conditions still need to be fulfilled for an experimentally reconstructed 1-RDM to be physically meaningful."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-cce03285-2d2f-4d9d-8196-110cde6277d4",
+      "type": "sentence",
+      "title": "Secondly, from a pure measurem...",
+      "level": 99,
+      "content": "Secondly, from a pure measurement perspective, as the 1-RDM contains both position and momentum space information, it cannot be obtained using a single experimental technique to this day and to the best of our knowledge."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-dcb71d82-eda5-4d8e-8cca-e0bc9a2ee00c",
+      "type": "sentence",
+      "title": "The challenge of 1-RDM reconst...",
+      "level": 99,
+      "content": "The challenge of 1-RDM reconstruction from experimental data was initiated by Clinton and coworkers in the 1960s using a drastic idempotency condition as a means to ensure N-representability ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-31155064-6f46-4cd7-969f-3cde213889d0",
+      "type": "sentence",
+      "title": "Based on a series of works com...",
+      "level": 99,
+      "content": "Based on a series of works combining position and momentum space data on isolated atoms, Schmider and coworkers argued that the idempotency condition would hinder the recovery of electron (static and dynamical) correlation effect in the reconstructed density matrix."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-e744b547-d246-4e98-bc75-cf89538a186e",
+      "type": "sentence",
+      "title": "The potential presence of such...",
+      "level": 99,
+      "content": "The potential presence of such information in position space was recently confirmed by an X-ray constrained wave-function refinement on urea and alanine ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-3565f144-b511-4f59-bce5-58b62eab15bd",
+      "type": "sentence",
+      "title": "The authors argue that evidenc...",
+      "level": 99,
+      "content": "The authors argue that evidence of significant deviation from the Hartree-Fock description can be found using high-resolution X-ray diffraction structure factors."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-2e0d32a8-9a4b-4033-97f1-f429e81c0027",
+      "type": "sentence",
+      "title": "Any single-determinant-based m...",
+      "level": 99,
+      "content": "Any single-determinant-based model would forbid access to such subtle features in the data."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-c2a3923f-0a38-41b4-9a6e-7cd91c7b20e7",
+      "type": "sentence",
+      "title": "Adopting a formal perspective,...",
+      "level": 99,
+      "content": "Adopting a formal perspective, Mazziotti and coworkers discussed different strategies to include N-representability conditions in a series of articles and proposed a semidefinite programming (SDP) formulation of the 1,2-RDM reconstruction problem ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-aa994b8b-3d35-4f8d-bed4-9e5eb9cc673e",
+      "type": "sentence",
+      "title": "On more practical grounds, fol...",
+      "level": 99,
+      "content": "On more practical grounds, following Schmider and coworkers' seminal work, several papers reported the joint use of X-ray diffraction structure factors (SF) and directional Compton profiles (DCP) to explore different non-single-determinant models and strategies for 1-RDM modelling in both magnetic and non-magnetic molecular compounds ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-07799894-7113-4de1-9027-aee39362310a",
+      "type": "sentence",
+      "title": "However, all SDP-based reconst...",
+      "level": 99,
+      "content": "However, all SDP-based reconstruction attempts of 1-RDM, which have been put forward, were applied to isolated atoms or molecules with at most 2 or 3 atoms."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b0d57c95-0865-4e58-b354-975fa70a26c0",
+      "type": "sentence",
+      "title": "The present work further inves...",
+      "level": 99,
+      "content": "The present work further investigates the 1-RDM reconstruction problem in molecular crystals by building upon the convex optimization approach put forward in , scaling up the system size from modest dry ice (CO$_2$) to the more realistic urea (CO(NH$_2$)$_2$) crystal."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b4d6e547-093a-4682-b3df-590cb2937226",
+      "type": "sentence",
+      "title": "The purpose is thus to demonst...",
+      "level": 99,
+      "content": "The purpose is thus to demonstrate the potential of an improved method more suitable to practical applications and its aptness to compensate for sparse momentum space data."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-7728de8f-3b78-4437-8e4b-3ce54d17586f",
+      "type": "sentence",
+      "title": "To address the challenges pose...",
+      "level": 99,
+      "content": "To address the challenges posed by a significant increase in system size, we propose the implementation of symmetry constraints and the possibility of freezing core-electron contributions."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-24bfa07d-cfd3-465d-ae41-9cee1a4454c5",
+      "type": "sentence",
+      "title": "For the first time, approximat...",
+      "level": 99,
+      "content": "For the first time, approximate energy and virial ratio are used to determine the optimal data set for the 1-RDM model refinement."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-9b0187ca-fc09-4dbd-82d6-5abab8657f76",
+      "type": "sentence",
+      "title": "This article is structured as ...",
+      "level": 99,
+      "content": "This article is structured as follows: In Sec. 2, we explain how the 1-RDM reconstruction can be formulated as a convex optimization problem, with the N-representability condition, symmetry and frozen core electrons as convex constraints."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-77430887-edf3-451a-94df-623f0c05e930",
+      "type": "sentence",
+      "title": "The method used for reconstruc...",
+      "level": 99,
+      "content": "The method used for reconstruction, deconvoluted from thermal motion, is briefly reviewed."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-7205df37-81fc-45e0-b629-643491b10731",
+      "type": "sentence",
+      "title": "In Sec. 3, we showcase the imp...",
+      "level": 99,
+      "content": "In Sec. 3, we showcase the importance of the joint use of position and momentum space data even when Compton scattering data is suspected to be poorly informative."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b89ccb3c-6c9d-446e-9a16-39ec53471592",
+      "type": "sentence",
+      "title": "Additional degradation due to ...",
+      "level": 99,
+      "content": "Additional degradation due to noise and temperature effects and the improved robustness using symmetry and frozen core constraints are illustrated."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-ef4b2d77-38cd-4803-b8d9-c190b6fb78aa",
+      "type": "sentence",
+      "title": "The conclusion and future dire...",
+      "level": 99,
+      "content": "The conclusion and future directions are given in the last section."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-section-a13faa9d-aa65-4187-832d-76a333d17e4d",
+      "type": "section",
+      "title": "Methods",
+      "level": 3,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "type": "subsection",
+      "title": "1-RDM reconstruction using least-square fitting",
+      "level": 4,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-720e2425-6037-4940-9db2-956bcca7c51b",
+      "type": "sentence",
+      "title": "For a spin-traced(spin-free) p...",
+      "level": 99,
+      "content": "For a spin-traced(spin-free) pure-state N-electron system, the 1-RDM can be derived by integrating out the $N-1$ coordinates of the N-electron density matrix, i.e."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-d4be3a3b-9927-407f-b0b3-e986ff722dcf",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}\\Gamma^{(1)}(\\mathbf{r}, \\mathbf{r}') =  N \\int \\psi(\\mathbf{r}, \\mathbf{r_2}, ... \\mathbf{r_N} )\\psi^* (\\mathbf{r}', \\mathbf{r}_2, ..., \\mathbf{r_N}) d\\mathbf{r}_2 ... d\\mathbf{r}_N.\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-a1fd19fc-704b-41ed-9625-2f16d2d478a4",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}\\Gamma^{(1)}(\\mathbf{r}, \\mathbf{r}') =  N \\int \\psi(\\mathbf{r}, \\mathbf{r_2}, ... \\mathbf{r_N} )\\psi^* (\\mathbf{r}', \\mathbf{r}_2, ..., \\mathbf{r_N}) d\\mathbf{r}_2 ... d\\mathbf{r}_N.\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-43771667-76ea-4b25-9f28-a699053e2c08",
+      "type": "sentence",
+      "title": "where $\\psi(\\mathbf{r}, \\mathb...",
+      "level": 99,
+      "content": "where $\\psi(\\mathbf{r}, \\mathbf{r_2}, ... \\mathbf{r_N} )$ is the pure-state N-electron wavefunction."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-c88e08cb-3d88-4432-b0da-ea1e404a3d9e",
+      "type": "sentence",
+      "title": "A mixed-state system 1-RDM is ...",
+      "level": 99,
+      "content": "A mixed-state system 1-RDM is a mere convex combination of pure-state 1-RDMs. It is well-known that the 1-RDM can be conveniently approximated using a discrete one-electron basis set $\\{\\phi_i\\}$ as"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-e16bd794-0936-4893-8dec-b999068ed12e",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}\\Gamma^{(1)}(\\mathbf{r}, \\mathbf{r}') = \\sum_{ij} P_{ij} \\phi_i(\\mathbf{r}) \\phi^*_j (\\mathbf{r}').\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-ea6cc71a-c2b7-4c7e-84ba-4cb472def653",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}\\Gamma^{(1)}(\\mathbf{r}, \\mathbf{r}') = \\sum_{ij} P_{ij} \\phi_i(\\mathbf{r}) \\phi^*_j (\\mathbf{r}').\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-c6a7ff0d-032d-4526-bb86-56b6f08523b1",
+      "type": "sentence",
+      "title": "If the basis set is kept fixed...",
+      "level": 99,
+      "content": "If the basis set is kept fixed, the 1-RDM is determined once the population matrix $\\mathbf{P}$ in is found."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-420307c6-ea38-4135-8812-c2ed55579e64",
+      "type": "sentence",
+      "title": "The number of parameters in th...",
+      "level": 99,
+      "content": "The number of parameters in the model is thus solely conditioned by the size of the population matrix and, therefore, by the number of basis functions."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b772b816-c0c6-4935-9a16-79c7a365b7cd",
+      "type": "sentence",
+      "title": "In this work, the basis functi...",
+      "level": 99,
+      "content": "In this work, the basis functions are atomic orbitals, but plane waves could also be considered, if needed, for strongly delocalised electron systems."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-7349b8ba-d85e-4151-a7a7-ea896f4c66b7",
+      "type": "sentence",
+      "title": "The 1-RDM is directly connecte...",
+      "level": 99,
+      "content": "The 1-RDM is directly connected to the mean electron density distribution in position space through its diagonal elements"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-03b2ca95-09cd-4d38-9605-0db6a1621210",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}\\rho(\\mathbf{r}) = \\Gamma^{(1)}(\\mathbf{r}, \\mathbf{r}).\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-9f8d5b97-7251-48ad-bcb4-be7903e742a1",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}\\rho(\\mathbf{r}) = \\Gamma^{(1)}(\\mathbf{r}, \\mathbf{r}).\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-873f6ae7-fbac-4337-b212-9b643f32f3d5",
+      "type": "sentence",
+      "title": "Furthermore, the 1-RDM encapsu...",
+      "level": 99,
+      "content": "Furthermore, the 1-RDM encapsulates momentum space information through a 6D Fourier-Dirac transform"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-d918a03b-b20d-409d-8930-fa607eb1ee56",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}n(\\mathbf{p}) = \\frac{1 }{ (2\\pi\\hbar)^3}\\int\\Gamma^{(1)}(\\mathbf{r}, \\mathbf{r}+\\mathbf{t})e^{-i\\mathbf{p}\\cdot\\mathbf{t}/\\hbar} d^3t d^3r,\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-9324b71b-51ea-4a39-a870-354cd17b69d1",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}n(\\mathbf{p}) = \\frac{1 }{ (2\\pi\\hbar)^3}\\int\\Gamma^{(1)}(\\mathbf{r}, \\mathbf{r}+\\mathbf{t})e^{-i\\mathbf{p}\\cdot\\mathbf{t}/\\hbar} d^3t d^3r,\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b2497fe3-13ee-4e3d-99fe-fefec068dfcc",
+      "type": "sentence",
+      "title": "with $n(\\mathbf{p})$ being the...",
+      "level": 99,
+      "content": "with $n(\\mathbf{p})$ being the momentum density."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-13d9fa97-a578-4bb0-95b0-3b5696aee8a7",
+      "type": "sentence",
+      "title": "This double connection to both...",
+      "level": 99,
+      "content": "This double connection to both axes of phase space strongly suggests there is little hope of reconstructing a good quality 1-RDM from data provided by a single experimental technique."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-a90162e2-5494-4979-9f5d-e95f363eee86",
+      "type": "sentence",
+      "title": "Thanks to very efficient refin...",
+      "level": 99,
+      "content": "Thanks to very efficient refinement methods and models , high-resolution X-ray structure factors (SF), which are obtained by elastic coherent X-ray diffraction, are almost routinely used in the reconstruction of position space electron density."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-69d2622d-16f9-4440-966b-3a49e3815dca",
+      "type": "sentence",
+      "title": "Using \\eqref{1RDM2density}, th...",
+      "level": 99,
+      "content": "Using , the relationship between SF and 1-RDM is simply"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-78342808-b15d-4e5d-a98b-c23657908de0",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}F(\\mathbf{q}) = \\int \\Gamma^{(1)}(\\mathbf{r}, \\mathbf{r}) \\exp (-i \\mathbf{r} \\cdot \\mathbf{q}) d \\mathbf{r}\n    .\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-5465f0ab-0aed-4821-832b-3d6275211616",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}F(\\mathbf{q}) = \\int \\Gamma^{(1)}(\\mathbf{r}, \\mathbf{r}) \\exp (-i \\mathbf{r} \\cdot \\mathbf{q}) d \\mathbf{r}\n    .\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-40239497-03d1-4eba-b04a-956e1696c1a7",
+      "type": "sentence",
+      "title": "On the other hand, directional...",
+      "level": 99,
+      "content": "On the other hand, directional Compton profiles (DCP) are measured by deep inelastic incoherent X-ray scattering."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-8593009d-2fb4-4c9f-871a-8fb8f6dff10b",
+      "type": "sentence",
+      "title": "Within the Impulse Approximati...",
+      "level": 99,
+      "content": "Within the Impulse Approximation , they give access to projections of momentum space electron density, i.e. \\begin{align} J(q,u)& = \\int n(p) \\delta(p \\cdot u - q) d p\\\\ &=\\frac{1 }{ 2\\pi\\hbar}\\int\\Gamma^{(1)}(r, r+t u)e^{-iqt/\\hbar} dt d^3r, \\end{align} where $\\mathbf{u}$ is the unit vector giving the direction in momentum space onto which the electron density is projected."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-6568e979-3ea2-41ec-9f45-70ebd5b547b0",
+      "type": "sentence",
+      "title": "It is colinear with the scatte...",
+      "level": 99,
+      "content": "It is colinear with the scattering vector of the Compton measurement."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-310b866f-6478-427b-ace5-e89a4c982503",
+      "type": "sentence",
+      "title": "The model used in this work is...",
+      "level": 99,
+      "content": "The model used in this work is based on expression ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-c47c42ed-4810-42d8-8b4f-8bcf90aee84d",
+      "type": "sentence",
+      "title": "The determination of the best ...",
+      "level": 99,
+      "content": "The determination of the best population matrix given a set of SF and DCP thus requires expressing experimental observable values as functions of matrix $\\mathbf{P}$ using the operator form"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-5c8b5bc0-ff2a-49bd-ba5d-d88bfc48257f",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}F(\\mathbf{q}) = \\text{Tr} (\\mathbf{F}_\\mathbf{q} \\mathbf{P})~~\\text{and}~~\nJ(\\mathbf{q}) = \\text{Tr} (\\mathbf{J}_\\mathbf{q} \\mathbf{P}),\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-030f1484-4e86-4ff0-a1bc-3023f3aafa45",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}F(\\mathbf{q}) = \\text{Tr} (\\mathbf{F}_\\mathbf{q} \\mathbf{P})~~\\text{and}~~\nJ(\\mathbf{q}) = \\text{Tr} (\\mathbf{J}_\\mathbf{q} \\mathbf{P}),\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-33294921-f09e-414e-bc58-a010f74c6d1f",
+      "type": "sentence",
+      "title": "with $\\mathbf{F}_\\mathbf{q}$ a...",
+      "level": 99,
+      "content": "with $\\mathbf{F}_\\mathbf{q}$ and $\\mathbf{J}_\\mathbf{q}$ being the SF and DCP operators respectively."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-ebc525fd-6fa2-4634-b8fd-37699830980f",
+      "type": "sentence",
+      "title": "For conciseness, $\\mathbf{q}$ ...",
+      "level": 99,
+      "content": "For conciseness, $\\mathbf{q}$ stands for $(q,\\mathbf{u})$ in the Compton profile matrix element of ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-51e39732-fbe5-4bbd-8cd8-f5efca4d157a",
+      "type": "sentence",
+      "title": "To proceed any further, the op...",
+      "level": 99,
+      "content": "To proceed any further, the operators $\\mathbf{F}_\\mathbf{q}$ and $ \\mathbf{J}_\\mathbf{q}$ matrix elements need to be written in the basis-set representation as \\begin{align} \\begin{split} (F_q)_{ij} = \\int \\phi_i^*(r)\\phi_j(r)e^{-iq\\cdotr} d^3r,\\\\ (J_q)_{ij} = \\frac{1}{2\\pi \\hbar}\\int \\phi_i^*(r)\\phi_j(r+t u)e^{-iqt} dtd^3r. \\end{split} \\end{align} In this work, particular attention has been paid to the reliability of the final 1-RDM reconstruction."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-e54c23c3-14dd-42c5-94d1-f672cf90aee9",
+      "type": "sentence",
+      "title": "If one assumes that error bars...",
+      "level": 99,
+      "content": "If one assumes that error bars on data points are uncorrelated and follow a normal distribution law, for an unbiased model, the most probable population matrix $\\mathbf{P}$ is found by solving the minimization problem."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-14eab57b-748f-44d7-a2ad-834c96fbbf71",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}\\text{argmin}_{\\mathbf{P}} ~ \\sum_i \\left (\\frac{ \\text{Tr}(\\mathbf{O}_i \\mathbf{P}) - O^{\\text{exp}}_i }{\\sigma_i}\\right )^2,\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-e66d4da1-3cff-41d4-90b3-31f70b02893f",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}\\text{argmin}_{\\mathbf{P}} ~ \\sum_i \\left (\\frac{ \\text{Tr}(\\mathbf{O}_i \\mathbf{P}) - O^{\\text{exp}}_i }{\\sigma_i}\\right )^2,\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-fa624125-9fe8-403c-8929-c05301fc7754",
+      "type": "sentence",
+      "title": "where the model is expected to...",
+      "level": 99,
+      "content": "where the model is expected to yield the mean value for each observable datum represented by $\\mathbf{O}_i$ while its actual experimental measurement gives $ O^{\\text{exp}}_i$ with the associated estimated variance $\\sigma_i^2$."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-efb2db08-47ab-42d3-be05-444e0aa3857c",
+      "type": "sentence",
+      "title": "In our case, each data point o...",
+      "level": 99,
+      "content": "In our case, each data point originates either from X-ray diffraction or Compton scattering measurements so that $\\mathbf{O}_i = \\mathbf{F}_{\\mathbf{q}_i}$ or, $\\mathbf{O}_j =\\mathbf{J}_{\\mathbf{q}_j}$ for different scattering vectors."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-cb582713-260c-4de5-9a22-a2da35d90830",
+      "type": "sentence",
+      "title": "In the present work, for a giv...",
+      "level": 99,
+      "content": "In the present work, for a given basis set of Gaussian contracted Slater-type orbitals, the closed form of each matrix element is calculated prior to refinement using a Mathematica code ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-85ac9c94-19b0-4ca6-9ce9-7402309fc223",
+      "type": "sentence",
+      "title": "The minimization of \\eqref{eq_...",
+      "level": 99,
+      "content": "The minimization of is a convex least-squares fitting problem."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-9c021b1d-90cb-4b5c-89f0-a984fe837fef",
+      "type": "sentence",
+      "title": "The following section will exp...",
+      "level": 99,
+      "content": "The following section will explain how, together with the necessary N-representability conditions, the reconstruction problem falls into a convex optimization problem called semidefinite programming ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "type": "subsection",
+      "title": "Constraints: N-representability, symmetry and frozen core",
+      "level": 4,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-9ea4d6cd-6b48-4882-9a85-05f20320e663",
+      "type": "sentence",
+      "title": "\\label{sec_constraint} The N-r...",
+      "level": 99,
+      "content": "The N-representability conditions must be satisfied to ensure that the population matrix yields a physically meaningful density matrix."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-54a20226-af76-4197-957c-de86308621d0",
+      "type": "sentence",
+      "title": "It is worth noting that the N-...",
+      "level": 99,
+      "content": "It is worth noting that the N-representability conditions are significantly more difficult if one requires the system to be in a pure state instead of a statistical mixture of quantum states. Pure N-representability and ensemble N-representability are generally employed to distinguish the respective situations ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-e813b8e8-1873-4fe3-9494-f1480560cef2",
+      "type": "sentence",
+      "title": "We have chosen to consider the...",
+      "level": 99,
+      "content": "We have chosen to consider the latter case for both practical reasons and because the system cannot always be exactly in its ground state, without interacting with the environment."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-ec4c81a3-9921-4641-9d47-3f90b24601d1",
+      "type": "sentence",
+      "title": "Consequently, for an \\textit{e...",
+      "level": 99,
+      "content": "Consequently, for an ensemble N-representable 1-RDM, the population matrix $\\mathbf{P}^\\perp$ for a closed-shell system, associated with an orthonormal basis set, must satisfy the following constraints, \\begin{subequations} \\begin{align} P^\\perp &\\succcurlyeq 0, \\\\ 2 I - P^\\perp &\\succcurlyeq 0, \\\\ Tr(P^\\perp) &= N, \\end{align} \\end{subequations} together with the obvious condition that $\\mathbf{P}^\\perp $ being Hermitian."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-ed21b5cf-399a-4dd4-a108-a4c9bc1f0c45",
+      "type": "sentence",
+      "title": "Here $\\mathbf{I}$ is the ident...",
+      "level": 99,
+      "content": "Here $\\mathbf{I}$ is the identity matrix, and the symbol $\\succcurlyeq$ means the matrix is semidefinite positive, which is equivalent to stating that all eigenvalues are non-negative."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-9c351956-ae25-45cb-a446-bd3ef05f062e",
+      "type": "sentence",
+      "title": "Hence, constraint (11b) requir...",
+      "level": 99,
+      "content": "Hence, constraint (11b) requires the eigenvalues of $\\mathbf{P}^\\perp$ to be smaller than 2."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-dc14dd46-a2f8-48d1-9081-44e0d06ac377",
+      "type": "sentence",
+      "title": "As previously mentioned, the p...",
+      "level": 99,
+      "content": "As previously mentioned, the present basis set is made of Slater-type atomic orbitals (expressed as Gaussian contractions), which are not mutually orthogonal."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-332c19f2-f329-478f-a4d7-638499990bea",
+      "type": "sentence",
+      "title": "A Lowdin orthogonalization is ...",
+      "level": 99,
+      "content": "A Lowdin orthogonalization is thus performed on the atomic-orbital basis set prior to the reconstruction."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-97f38608-0284-491a-9750-82def0190d37",
+      "type": "sentence",
+      "title": "All constraints listed in \\eqr...",
+      "level": 99,
+      "content": "All constraints listed in are convex; thus, the convexity of the minimization of Eq.~ is preserved."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-97f52578-121a-4b75-8a90-5ceda5526fed",
+      "type": "sentence",
+      "title": "Moreover, the semi-definite po...",
+      "level": 99,
+      "content": "Moreover, the semi-definite positivity of $\\mathbf{P}^\\perp$ imposed in makes it possible to use the tools of semi-definite programming ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-33b36f48-e1cc-4ad5-87c2-c304020be480",
+      "type": "sentence",
+      "title": "Access to the solution is ther...",
+      "level": 99,
+      "content": "Access to the solution is thereby significantly facilitated."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-ed93a31d-c7bf-46db-90ca-f0f29627d45b",
+      "type": "sentence",
+      "title": "The model developed in this wo...",
+      "level": 99,
+      "content": "The model developed in this work is specifically adapted to molecular crystals for which a single group of atoms can be considered to form a specific entity."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b9ea5a59-4a21-4a20-8cf4-2d168fed4b9d",
+      "type": "sentence",
+      "title": "It is assumed that this group,...",
+      "level": 99,
+      "content": "It is assumed that this group, referred to as \"the molecule\", does not share any charge with other entities in the same or neighbouring unit cells."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-cd9f422a-8c57-4164-aaeb-fb9d9fa8cd65",
+      "type": "sentence",
+      "title": "The 1-RDM model is thus a mere...",
+      "level": 99,
+      "content": "The 1-RDM model is thus a mere molecular 1-RDM onto which translation and rotational symmetry operations can be applied to generate the density matrix of the entire crystal."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-62da289d-9fe6-4f13-9b5b-f7729a61b8a4",
+      "type": "sentence",
+      "title": "These operations are fully tak...",
+      "level": 99,
+      "content": "These operations are fully taken into account in the present work."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-57b5c640-5589-4680-b8da-8b6308ab85f9",
+      "type": "sentence",
+      "title": "The symmetry invariance at the...",
+      "level": 99,
+      "content": "The symmetry invariance at the molecular level can also be considered."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-26bdcd1e-ee00-413b-aeeb-7f3f2c5217b4",
+      "type": "sentence",
+      "title": "The population matrix is thus ...",
+      "level": 99,
+      "content": "The population matrix is thus required to be a direct sum of matrices in the invariant subspaces of each symmetry operator."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-63f107f3-3556-4e7d-acf2-3a6a4f7c7b7c",
+      "type": "sentence",
+      "title": "In other words, $\\mathbf{P}$ s...",
+      "level": 99,
+      "content": "In other words, $\\mathbf{P}$ should be block-diagonal when using the symmetry-adapted orbitals as the new basis, i.e. $\\mathbf{S}^{T} \\mathbf{P} \\mathbf{S} = \\bigoplus_{j=1}^{n} \\mathbf{P}_j$ where $\\mathbf{S}$ transforms the basis of atomic orbitals into symmetry adapted orbitals, $n$ the number of irreducible representations and $\\mathbf{P}_j$ the block matrices associated with each irreducible representation."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-c019cd68-2d0d-4ce6-8ef5-8b7563fb1d67",
+      "type": "sentence",
+      "title": "The new model also allows for ...",
+      "level": 99,
+      "content": "The new model also allows for freezing core-electron contributions."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-11ab123a-9dce-4a15-929a-fc5c13a81035",
+      "type": "sentence",
+      "title": "It effectively reduces the mod...",
+      "level": 99,
+      "content": "It effectively reduces the model's active space, hence the number of parameters to be determined in the population matrix."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-ee34bd7f-06c5-4c5d-8bfe-1b2952bd2b00",
+      "type": "sentence",
+      "title": "As a consequence, illustrated ...",
+      "level": 99,
+      "content": "As a consequence, illustrated in the next section, the computational cost is lowered, and the robustness of the result is improved against noise contamination and thermal-induced effects."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-4c4798fe-63d6-429d-9c87-afc35ff91f61",
+      "type": "sentence",
+      "title": "It can be best observed on cor...",
+      "level": 99,
+      "content": "It can be best observed on core electrons' spatial density distribution, contributing to sharp peaks near each nucleus."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-bfd75ba2-f1a9-4976-a3bd-91afed7f500d",
+      "type": "sentence",
+      "title": "Therefore, accurately reproduc...",
+      "level": 99,
+      "content": "Therefore, accurately reproducing such features for a population matrix model would require knowledge of high-$q$ structure factors, which may present an experimental challenge at usual temperatures."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-98e82b1f-eb27-4a60-8c82-e3ca6bb90b06",
+      "type": "sentence",
+      "title": "Here, an alternate but common ...",
+      "level": 99,
+      "content": "Here, an alternate but common approach was chosen."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-c933c75c-ebdf-4e3e-9fa5-481c3c852552",
+      "type": "sentence",
+      "title": "A single-determinant calculati...",
+      "level": 99,
+      "content": "A single-determinant calculation of the wave-function is performed from which core-electron molecular orbitals are extracted to construct an approximate core-electron density matrix."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-6de9588b-7059-4e1d-8d5f-e0a0deb5c87a",
+      "type": "sentence",
+      "title": "As a result, the model populat...",
+      "level": 99,
+      "content": "As a result, the model population matrix is given by $\\mathbf{P}^\\perp = \\mathbf{P}'^\\perp + \\mathbf{P}_{\\text{core}}^\\perp$, with $\\mathbf{P}_{\\text{core}}^\\perp$ being the frozen-core-electron population matrix."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-3ed5e2cd-26d8-45d2-ad63-f5790e5fa9d7",
+      "type": "sentence",
+      "title": "The latter represents a fixed ...",
+      "level": 99,
+      "content": "The latter represents a fixed number of electrons and is -by construction- idempotent."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-5910fa43-b993-40cc-be90-d2af3aa042b1",
+      "type": "sentence",
+      "title": "The optimization is thus force...",
+      "level": 99,
+      "content": "The optimization is thus forced to search for the optimal solution in the subspace orthogonal to that spanned by the core electron's orbitals if the N-representability on the total 1-RDM is to be preserved."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-89e63adf-26ad-4414-aaf9-c4de06f0943a",
+      "type": "sentence",
+      "title": "Combining symmetry and frozen-...",
+      "level": 99,
+      "content": "Combining symmetry and frozen-core conditions and assuming a non-magnetic system, the N-representability constraints become \\begin{subequations} \\begin{align} P'^\\perp &\\succcurlyeq 0, \\\\ 2 I - P'^\\perp - P^\\perp_{core}&\\succcurlyeq 0, \\\\ Tr(P'^\\perp + P^\\perp_{core}) &= N \\\\ S'^{T} (P'^\\perp + P^\\perp_{core}) S' &= \\bigoplus_{j=1}^{n} P_j, \\end{align} \\end{subequations} with $\\mathbf{P}'^\\perp$ being the population matrix for valence electrons and $N$ the total electron number for a single molecule. $\\mathbf{S'}$ transforms the orthogonalized atomic basis into the symmetry adapted basis."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-5593f52e-d58a-4186-8e0f-343be0a59ee3",
+      "type": "sentence",
+      "title": "We remark that with \\eqref{eq_...",
+      "level": 99,
+      "content": "We remark that with - , the optimization problem can still be modelled with SDP."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-60fa2f45-4488-4ac9-842b-e379cefc6228",
+      "type": "sentence",
+      "title": "In this work, the constrained ...",
+      "level": 99,
+      "content": "In this work, the constrained optimization problem is solved from the closed form of our model using the CVXPY package ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-4369b07b-6c1c-4f23-add0-8073c509cd46",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{figure}\n    \\includegraphics{Fig1.pdf}\n    \\caption{a) The unit cell of urea crystal ($P\\overline{4}21m$ with a=5.66 \\angs, c=4.71 \\angs) b) In dashed-green the path along which the 1-RDM values displayed in this article have been computed. The path is a succession of segments passing through O-C-N-H atoms.}\n\\end{figure}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-41671ecf-b42f-4a38-952f-ed8dd2a56e7d",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{figure}\n    \\includegraphics{Fig1.pdf}\n    \\caption{a) The unit cell of urea crystal ($P\\overline{4}21m$ with a=5.66 \\angs, c=4.71 \\angs) b) In dashed-green the path along which the 1-RDM values displayed in this article have been computed. The path is a succession of segments passing through O-C-N-H atoms.}\n\\end{figure}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-448ed123-8edc-4155-8c15-eaba2cd575c6",
+      "type": "sentence",
+      "title": "figure...",
+      "level": 99,
+      "content": "figure"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-6d871e73-0bcf-4a79-b8f8-06ac054241dc",
+      "type": "sentence",
+      "title": "figure...",
+      "level": 99,
+      "content": "figure"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "type": "subsection",
+      "title": "Reconstruction from non-zero temperature data",
+      "level": 4,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-7b7fb19c-4cf2-48a9-adef-bc9969494402",
+      "type": "sentence",
+      "title": "\\label{sec_dw} It must be note...",
+      "level": 99,
+      "content": "It must be noted that the reconstruction method is inherently temperature-independent, since the 1-RDM describes both mixed states and pure states."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-4628f434-9bd4-4293-8867-50e009106c90",
+      "type": "sentence",
+      "title": "However, comparison with first...",
+      "level": 99,
+      "content": "However, comparison with first-principle calculations is generally best done at the zero-Kelvin limit."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-0a694eb7-ba09-4385-b5ab-c8cf56596f7d",
+      "type": "sentence",
+      "title": "It is thus helpful to deconvol...",
+      "level": 99,
+      "content": "It is thus helpful to deconvolute thermal motion effects to recover the ideal static 1-RDM."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-cea48f39-db05-41a4-82f7-4f412b405bd4",
+      "type": "sentence",
+      "title": "In this work, it is assumed th...",
+      "level": 99,
+      "content": "In this work, it is assumed that, given the large photon-electron energy transfer involved in the Compton scattering process, DCPs are hardly affected by nuclear agitation at reasonably low temperature ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-7f21685d-f1b0-41dc-affa-47f6661c9565",
+      "type": "sentence",
+      "title": "Therefore, temperature-induced...",
+      "level": 99,
+      "content": "Therefore, temperature-induced alteration of experimental data is only taken into consideration for X-ray structure factors."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-dfa87307-85f4-4c97-beae-f1d4496b4eaf",
+      "type": "sentence",
+      "title": "In this case, the model is mod...",
+      "level": 99,
+      "content": "In this case, the model is modified so that the SF matrix elements include an anisotropic Debye-Waller factor."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-b2a9f137-46a2-482b-9d86-8475625704e7",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}(\\mathbf{F}_\\mathbf{q})_{ij}= e^{-\\mathbf{q}\\cdot\\widehat {B}_a\\cdot\\mathbf{q}}\\int \\phi_i^*(\\mathbf{r})\\phi_j(\\mathbf{r})e^{-i\\mathbf{q}\\cdot\\mathbf{r}} d^3r\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-equation-c5b5a440-4ea6-40cd-97a1-db2dbcb94222",
+      "type": "equation",
+      "title": "Equation Block",
+      "level": 99,
+      "content": "\\begin{equation}(\\mathbf{F}_\\mathbf{q})_{ij}= e^{-\\mathbf{q}\\cdot\\widehat {B}_a\\cdot\\mathbf{q}}\\int \\phi_i^*(\\mathbf{r})\\phi_j(\\mathbf{r})e^{-i\\mathbf{q}\\cdot\\mathbf{r}} d^3r\\end{equation}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-2960f91b-21ea-4d10-bf19-98a45059ab52",
+      "type": "sentence",
+      "title": "where $\\widehat {B}_a$ is the ...",
+      "level": 99,
+      "content": "where $\\widehat {B}_a$ is the thermal displacement tensor for nucleus $a$ on which both basis functions $\\phi_i$ and $\\phi_j$ are centred."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-6dc7193b-3bb1-4862-a1f1-bfc6b7f4d0f5",
+      "type": "sentence",
+      "title": "No change is applied when the ...",
+      "level": 99,
+      "content": "No change is applied when the basis functions are associated with different atoms."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-fe73f726-dfab-43b5-be2a-b5044983cd81",
+      "type": "sentence",
+      "title": "More sophisticated temperature...",
+      "level": 99,
+      "content": "More sophisticated temperature schemes are worth considering ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b03a311d-fc97-450f-aa38-466aae5b4d71",
+      "type": "sentence",
+      "title": "For example, the Mulliken part...",
+      "level": 99,
+      "content": "For example, the Mulliken partitioning approach to two-centre contribution was implemented in our previous work and should be used with real data."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-5ef88fb7-1cd2-4133-a71d-d96945a81435",
+      "type": "sentence",
+      "title": "However, the usual independent...",
+      "level": 99,
+      "content": "However, the usual independent-atom model was chosen to prevent unfair similarity with the computational method used to generate the reference data ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-be368851-4e0d-43bc-a0f7-6c203ef0ed96",
+      "type": "sentence",
+      "title": "It has been checked that this ...",
+      "level": 99,
+      "content": "It has been checked that this simple approach allows for a fair deconvolution of thermal agitation effects when data is not contaminated with noise."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "type": "section",
+      "title": "Results",
+      "level": 3,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-042f6975-6cca-4295-8fa2-f601fe76260c",
+      "type": "sentence",
+      "title": "The model explained above is w...",
+      "level": 99,
+      "content": "The model explained above is well suited to molecular crystals and should be assessed for realistic systems."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-e9a67ea1-f4d5-409a-937b-bdfdf7de1699",
+      "type": "sentence",
+      "title": "In particular, for such an app...",
+      "level": 99,
+      "content": "In particular, for such an approach which combines different experiments, it is necessary to evaluate the impact of data quality on the 1-RDM reconstruction."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-8d637bb2-8fc3-4b13-bf78-8d2b82ff33c1",
+      "type": "sentence",
+      "title": "The urea crystal (CO(NH$_2$)$_...",
+      "level": 99,
+      "content": "The urea crystal (CO(NH$_2$)$_2$) has been chosen for two specific reasons: firstly, it has long been considered a \"standard\" test system in the field of charge density reconstruction."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-cadb3f39-396d-4172-bba8-c0f42676c92f",
+      "type": "sentence",
+      "title": "Several bond types are represe...",
+      "level": 99,
+      "content": "Several bond types are represented, among which highly mobile and delocalized electron density contributes to non-linear optical properties ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-841417fb-106f-4d17-b1b4-4ed6fcb8672f",
+      "type": "sentence",
+      "title": "Secondly, because of the inter...",
+      "level": 99,
+      "content": "Secondly, because of the interest it has attracted over the years, high-quality structure factors and Compton profiles data are available from the literature."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-3ca6507b-3856-4dd9-aa3c-694fbd3f7290",
+      "type": "sentence",
+      "title": "It thus positions urea as a le...",
+      "level": 99,
+      "content": "It thus positions urea as a legitimate candidate for a first phase-space-derived reconstruction of experimental 1-RDM on a molecular compound."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-8e68ee3d-ef64-4b18-8b34-b5d06c725c2f",
+      "type": "sentence",
+      "title": "Additionally, the urea molecul...",
+      "level": 99,
+      "content": "Additionally, the urea molecule is significantly larger than our previous test systems and possibly one of the largest molecules onto which Compton measurement has ever been reported ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-1f48cde4-198f-47a7-be61-05613d74c906",
+      "type": "sentence",
+      "title": "It can thus be considered a si...",
+      "level": 99,
+      "content": "It can thus be considered a significant step in the quest for 1-RDM reconstruction."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-8b57fa3f-a459-4419-8706-34ebd195411f",
+      "type": "sentence",
+      "title": "This paper is the last stage o...",
+      "level": 99,
+      "content": "This paper is the last stage of model calibration before a final reconstruction from true experimental data is undertaken."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-191ad0aa-e4b7-49f9-acdf-278e792dc14f",
+      "type": "sentence",
+      "title": "We use here the same strategy ...",
+      "level": 99,
+      "content": "We use here the same strategy for model assessment as for smaller systems, and described in previous papers : a reference 1-RDM is obtained from a periodic DFT calculation using the B3LYP functional and a pob-DZVP basis set using the CRYSTAL14 program ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-878a1cf7-bbda-40d4-a80b-2f44915fbf8c",
+      "type": "sentence",
+      "title": "The nuclei positions are those...",
+      "level": 99,
+      "content": "The nuclei positions are those given by and derived from neutron diffraction data."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-ef65122e-b18d-4d31-b24d-46fa3f1fba62",
+      "type": "sentence",
+      "title": "Artificial-experimental data p...",
+      "level": 99,
+      "content": "Artificial-experimental data points are then generated based on this DFT-derived 1-RDM. 50-K-structure-factors are computed up to $\\sin\\theta/\\lambda=$1.1 \\invangs after atomic displacement parameters have been obtained using the dedicated option of CRYSTAL14 ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-f3fb72e0-f6e1-4998-831d-e0edfee161d2",
+      "type": "sentence",
+      "title": "Compton profiles are little af...",
+      "level": 99,
+      "content": "Compton profiles are little affected by thermal motion at such low temperatures, and no particular treatment is applied in their case."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b01ef948-5d93-4a2a-a5d9-2161faa9616d",
+      "type": "sentence",
+      "title": "The CRYSTAL14 SF and DCP value...",
+      "level": 99,
+      "content": "The CRYSTAL14 SF and DCP values are considered ideal mean values on which a Gaussian noise distribution is centred for each data point."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-58c55007-8061-4c0f-862e-31b70a666d98",
+      "type": "sentence",
+      "title": "Consequently, noise-contaminat...",
+      "level": 99,
+      "content": "Consequently, noise-contaminated data is also considered in our test reconstructions."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-66a34c27-120b-4527-a385-17ebe3c28e35",
+      "type": "sentence",
+      "title": "The reconstructed density matr...",
+      "level": 99,
+      "content": "The reconstructed density matrix is obtained by determining a population matrix for a basis of poorer quality than that employed for artificial-data generation."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-7b44491b-22c0-4f7f-acd2-df2894a1939a",
+      "type": "sentence",
+      "title": "An inevitable bias in the mode...",
+      "level": 99,
+      "content": "An inevitable bias in the model is therefore introduced."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-c4cd150e-5afd-4ca2-a19f-63b115af098c",
+      "type": "sentence",
+      "title": "The basis set for the 1-RDM mo...",
+      "level": 99,
+      "content": "The basis set for the 1-RDM model is thus taken as a simple 6-31G basis set, with additional $p$-orbitals on hydrogen atoms."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "type": "subsection",
+      "title": "Reconstructions from ideal data",
+      "level": 4,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-343a0b05-d7df-4e4c-8bb8-cfb215d4234b",
+      "type": "sentence",
+      "title": "The best reconstruction result...",
+      "level": 99,
+      "content": "The best reconstruction result is expected when data is obtained without thermal motion and noise."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-62210e98-2ee7-494a-80e3-14314ea01fad",
+      "type": "sentence",
+      "title": "The use of artificial data can...",
+      "level": 99,
+      "content": "The use of artificial data cannot be circumvented to test this optimal case."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-60d87de9-00b9-4aa7-a7c1-8ffb65224875",
+      "type": "sentence",
+      "title": "Observing what type of reconst...",
+      "level": 99,
+      "content": "Observing what type of reconstruction results from the sole use of X-ray diffraction data is then quite illustrative."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-1a55d07d-9654-4a7d-b5f8-2c5e43ee3b04",
+      "type": "sentence",
+      "title": "The artificial-experimental se...",
+      "level": 99,
+      "content": "The artificial-experimental set includes 3627 SF with $\\sin\\theta/\\lambda < 1.1 $ \\invangs."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-8a7389df-59d7-476f-9609-3e1a119e7518",
+      "type": "sentence",
+      "title": "Inspection of the 1-RDM $\\Gamm...",
+      "level": 99,
+      "content": "Inspection of the 1-RDM $\\Gamma(\\mathbf{r}, \\mathbf{r}')$ on the O-C-N-H path as a 2D function clearly shows that the SF-only derived 1-RDM lacks most of the off-diagonal regions important features (Fig. )."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-51cd02e0-d2e6-4af7-8729-c6804b7e252b",
+      "type": "sentence",
+      "title": "It is consistent with conclusi...",
+      "level": 99,
+      "content": "It is consistent with conclusions drawn from previous works on a much smaller system."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-8db6b1a1-b74e-4732-a3a0-38a6a62141f8",
+      "type": "sentence",
+      "title": "In such a case, inferring the ...",
+      "level": 99,
+      "content": "In such a case, inferring the off-diagonal region is inherently difficult because SF are solely related to the position space density, therefore to the diagonal component $\\rho(\\mathbf{r}) = \\Gamma(\\mathbf{r}, \\mathbf{r})$."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-a32f2777-5abb-425c-b896-486da0b3e8e0",
+      "type": "sentence",
+      "title": "Only constraints on the model ...",
+      "level": 99,
+      "content": "Only constraints on the model are likely to improve the off-diagonal description."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-80b681e2-db53-4496-8cec-f44f5df076e6",
+      "type": "sentence",
+      "title": "This is an important criterion...",
+      "level": 99,
+      "content": "This is an important criterion to assess the quality of the 1-RDM reconstruction since, in essence, off-diagonal parts are conditioned by the bonding mechanisms and how different locations interfere to shape the wave-function."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-e74bc4fe-df84-47f5-adea-66055045023a",
+      "type": "sentence",
+      "title": "A second step is to include no...",
+      "level": 99,
+      "content": "A second step is to include noise-free Compton data in the observables."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b3206a05-ef75-4319-8f84-6a06e8a78697",
+      "type": "sentence",
+      "title": "In all the following cases, 8 ...",
+      "level": 99,
+      "content": "In all the following cases, 8 non-equivalent crystalline directions are used ([100], [110], [111], [210], [211], [310], [311], [321])."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-8759c838-0777-48a4-98e0-2f8329c66d10",
+      "type": "sentence",
+      "title": "For each direction, data point...",
+      "level": 99,
+      "content": "For each direction, data points are taken every 0.1 a.u.."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-d3cd04ba-dce5-4c6f-87e8-ba70ab99d7d9",
+      "type": "sentence",
+      "title": "This value corresponds to usua...",
+      "level": 99,
+      "content": "This value corresponds to usual Compton spectrometer resolutions and prevents significant correlation between consecutive points."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-f2115a42-cd3a-4b48-a4bb-1fa7be14f770",
+      "type": "sentence",
+      "title": "The maximum momentum value is ...",
+      "level": 99,
+      "content": "The maximum momentum value is set to 10 a.u.."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b41edc44-e116-4d02-a10c-143d2597aed9",
+      "type": "sentence",
+      "title": "The data set thus contains 800...",
+      "level": 99,
+      "content": "The data set thus contains 800 DCP values in total."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-2b795c79-b9c7-4443-97ce-b862efe2765d",
+      "type": "sentence",
+      "title": "Obviously, a noise-free refine...",
+      "level": 99,
+      "content": "Obviously, a noise-free refinement case does not justify any weighting scheme, and the $\\sigma_i$ in the objective function are uniformly taken to be 1."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-76bd7d12-43c9-4d1a-bd62-e7e0f8d0c0f7",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{figure}\n    \\includegraphics{Fig2.pdf}\n    \\caption{a) The reference 1-RDM along the O-C-N-H path was calculated from CRYSTAL14. The reconstructed 1-RDMs with and without the DCP artificial-data are shown respectively in the upper left and lower right corner of (b). The contours are drawn at $\\pm 10^{-2} \\times 2^n e \\cdot \\text{\\angs}^{-3}, ~n \\in [0, 20]$ where the positive(negative) contours are shown in solid (dashed) lines with blue (red) shades.}\n\\end{figure}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-df9e34ff-dc81-4571-86ae-4fbe4252db8c",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{figure}\n    \\includegraphics{Fig2.pdf}\n    \\caption{a) The reference 1-RDM along the O-C-N-H path was calculated from CRYSTAL14. The reconstructed 1-RDMs with and without the DCP artificial-data are shown respectively in the upper left and lower right corner of (b). The contours are drawn at $\\pm 10^{-2} \\times 2^n e \\cdot \\text{\\angs}^{-3}, ~n \\in [0, 20]$ where the positive(negative) contours are shown in solid (dashed) lines with blue (red) shades.}\n\\end{figure}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-c72e22d1-7707-47be-82d7-376066505200",
+      "type": "sentence",
+      "title": "figure...",
+      "level": 99,
+      "content": "figure"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-2bc58d0c-a24c-4058-bc35-70f90d76a3d2",
+      "type": "sentence",
+      "title": "figure...",
+      "level": 99,
+      "content": "figure"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-33d5e066-1d8c-4661-beff-b09cb9d83c3b",
+      "type": "sentence",
+      "title": "As displayed in Fig.~\\ref{fig2...",
+      "level": 99,
+      "content": "As displayed in Fig.~(b), the reconstructed 1-RDM now exhibits very marginal deviation from the reference."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-9b49433d-6ea7-459b-b6b4-a04105c5df4e",
+      "type": "sentence",
+      "title": "Slight differences persist in ...",
+      "level": 99,
+      "content": "Slight differences persist in the off-diagonal regions $\\Gamma(r, r'\\neq r)$."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-8aa0d6cc-a43b-4e02-a10c-3d6248842c94",
+      "type": "sentence",
+      "title": "A discrepancy is observed when...",
+      "level": 99,
+      "content": "A discrepancy is observed when the reconstructed 1-RDM are visualized along the two different O-C-N-H paths."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-47b04692-9ad2-4a87-962b-b25a7a8246a9",
+      "type": "sentence",
+      "title": "Such a discrepancy is correcte...",
+      "level": 99,
+      "content": "Such a discrepancy is corrected once the symmetry restriction is imposed."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-eea205b3-0781-4a14-8135-f887ae23e811",
+      "type": "sentence",
+      "title": "The virial ratio $-V / 2T$ is ...",
+      "level": 99,
+      "content": "The virial ratio $-V / 2T$ is calculated for the reconstructed 1-RDMs, where the two-electron potential energy is estimated using the 2-RDM expression ansatz $\\Gamma^{(2)}(\\mathbf{r'}_1,\\mathbf{r'}_2;\\mathbf{r}_1,\\mathbf{r}_2)=\\Gamma^{(1)}(\\mathbf{r}_1,\\mathbf{r'}_1)\\Gamma^{(1)}(\\mathbf{r'}_2,\\mathbf{r}_2)-\\Gamma^{(1)}(\\mathbf{r'}_1,\\mathbf{r}_2)\\Gamma^{(1)}(\\mathbf{r'}_2,\\mathbf{r}_1)$."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-be746082-a25c-49af-a299-02490161560c",
+      "type": "sentence",
+      "title": "The virial ratios for reconstr...",
+      "level": 99,
+      "content": "The virial ratios for reconstruction with and without DCP are 0.996 and 0.934, respectively, confirming the role of Compton data in reaching a more pertinent solution."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-36a30535-e36b-4b11-8486-104b06cafd60",
+      "type": "sentence",
+      "title": "The distinction between the tw...",
+      "level": 99,
+      "content": "The distinction between the two reconstructions showcases the importance of momentum space measurement even for a system like urea crystal, where the DCP anisotropy does not exceed 1\\% of the total electron number (see Fig.~)."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b73cec52-b7e3-4ff8-8749-95a8a5b00136",
+      "type": "sentence",
+      "title": "Note that the good post-refine...",
+      "level": 99,
+      "content": "Note that the good post-refinement virial ratio is a mere consequence of the reconstruction quality and did not require any ad-hoc constraint in our model or the objective function."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-8dc72e77-71b9-46da-a940-be6ab8c1f712",
+      "type": "sentence",
+      "title": "In the following paragraphs, p...",
+      "level": 99,
+      "content": "In the following paragraphs, possible sources of reconstruction errors will be discussed in more detail, and emphasis will be put on techniques for improving the model's robustness."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "type": "subsection",
+      "title": "Closer to real life: noise and temperature effects",
+      "level": 4,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-85a51054-a78e-4d60-b710-273b752bad5b",
+      "type": "sentence",
+      "title": "\\label{section_noisetemp}...",
+      "level": 99,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-1e175106-9caa-4a60-b99f-df45ec4dccf8",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{figure}\n    \\includegraphics{Fig3.pdf}\n    \\caption{a) The reference (upper left) and reconstructed (lower right) 1-RDM $\\Gamma(\\mathbf{r}, \\mathbf{r}')$ with 0 K 1\\% noisy data. b) The reconstruction 1-RDMs from 50 K 1\\% noisy data with (upper left) and without (lower right) restrictions. c) Estimated standard deviations for reconstructions shown in (b). \\\\ The contours for (a) and (b) are the same as in Fig.~, and the positive(negative) contours are shown in solid (dashed) lines with blue (red) shades. For (c) the contours are drawn at $10^{-4} \\times 2^n e \\cdot \\text{\\angs}^{-3}, ~n \\in [0, 12].$ \\\\ (N. 0K w/o R. = Noised 0 K without Restriction)}\n\\end{figure}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-ddd7de0c-2056-43c9-be18-d9c797e8d80e",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{figure}\n    \\includegraphics{Fig3.pdf}\n    \\caption{a) The reference (upper left) and reconstructed (lower right) 1-RDM $\\Gamma(\\mathbf{r}, \\mathbf{r}')$ with 0 K 1\\% noisy data. b) The reconstruction 1-RDMs from 50 K 1\\% noisy data with (upper left) and without (lower right) restrictions. c) Estimated standard deviations for reconstructions shown in (b). \\\\ The contours for (a) and (b) are the same as in Fig.~, and the positive(negative) contours are shown in solid (dashed) lines with blue (red) shades. For (c) the contours are drawn at $10^{-4} \\times 2^n e \\cdot \\text{\\angs}^{-3}, ~n \\in [0, 12].$ \\\\ (N. 0K w/o R. = Noised 0 K without Restriction)}\n\\end{figure}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-5f2371b1-dabb-4605-b040-091209eb75f8",
+      "type": "sentence",
+      "title": "figure...",
+      "level": 99,
+      "content": "figure"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-570a8017-6c1c-4ae2-903a-ed8ce298b27e",
+      "type": "sentence",
+      "title": "figure...",
+      "level": 99,
+      "content": "figure"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-d1b6e3b1-3af1-4ee1-9978-bee39c10c786",
+      "type": "sentence",
+      "title": "When real experimental data is...",
+      "level": 99,
+      "content": "When real experimental data is used, noise contamination cannot be avoided."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-9522f1df-c3de-4ae3-a7d3-34451479b676",
+      "type": "sentence",
+      "title": "This section first considers t...",
+      "level": 99,
+      "content": "This section first considers the effect of statistical noise and, as a common practice, assumes no bias in the model."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-ecfe9f41-0532-4cea-8775-6bed2ef276f5",
+      "type": "sentence",
+      "title": "Then, the thermal motion of nu...",
+      "level": 99,
+      "content": "Then, the thermal motion of nuclei is introduced, and we study how it combines with statistical noise to deteriorate the reconstructed 1-RDM further."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-84705721-014e-4eb0-8100-f46bb9c1734e",
+      "type": "sentence",
+      "title": "Artificial data is now contami...",
+      "level": 99,
+      "content": "Artificial data is now contaminated by a random noise generated according to a Gaussian law."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-ce3c65f4-c8f0-4a99-81f3-ab4b8856687d",
+      "type": "sentence",
+      "title": "For example, the SF data value...",
+      "level": 99,
+      "content": "For example, the SF data values become $F'(\\mathbf{q}) = F(\\mathbf{q}) + n \\times \\epsilon (\\mathbf{q})$ with $~\\epsilon \\sim \\mathcal{N}(0, \\vert F (\\mathbf{q}) \\vert )$."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-6f726186-ed83-4773-b24c-21bc681d082c",
+      "type": "sentence",
+      "title": "The noise level is chosen to b...",
+      "level": 99,
+      "content": "The noise level is chosen to be of the order of 1\\% by setting $n=0.01$."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-4167d165-ec84-4fbb-9a42-01a92090f42e",
+      "type": "sentence",
+      "title": "A similar procedure is applied...",
+      "level": 99,
+      "content": "A similar procedure is applied to the DCP values."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-179412f2-c664-4500-8754-3132bf9da88f",
+      "type": "sentence",
+      "title": "Notice that, given the weak Co...",
+      "level": 99,
+      "content": "Notice that, given the weak Compton anisotropy in this system, the chosen noise level wipes out most of the directional information from the Compton scattering spectrum."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-55b6a82c-bf02-4550-8356-ae561755919e",
+      "type": "sentence",
+      "title": "We have found that such a nois...",
+      "level": 99,
+      "content": "We have found that such a noise model results in highly unbalanced weight in the objective function."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-d8e3a7af-0d22-4a56-9870-5153148e3df6",
+      "type": "sentence",
+      "title": "Hence, an unweighted version o...",
+      "level": 99,
+      "content": "Hence, an unweighted version of is used in practice."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-314294a6-3f26-444d-b931-2254d9ba3dc2",
+      "type": "sentence",
+      "title": "As expected, the 1-RDM reconst...",
+      "level": 99,
+      "content": "As expected, the 1-RDM reconstruction from noisy data now exhibits stronger deviations from the reference."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-335a95c4-10f5-4621-bfdd-a603e8b6c7c2",
+      "type": "sentence",
+      "title": "It can be seen in Fig. \\ref{fi...",
+      "level": 99,
+      "content": "It can be seen in Fig. (a)."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-d9f95792-f8cd-4e6a-967f-ddbda5f9c2dd",
+      "type": "sentence",
+      "title": "The modest discrepancies in th...",
+      "level": 99,
+      "content": "The modest discrepancies in the diagonal part of the RDM can be emphasized by looking at the electron deformation density displayed in Fig.~ (a)."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-cb4a2f2c-4d13-475b-b135-6c77e7192f1b",
+      "type": "sentence",
+      "title": "As a reminder, the deformation...",
+      "level": 99,
+      "content": "As a reminder, the deformation density is the difference between the total electron density and the sum of independent atoms densities, i.e. promolecular density."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-f3e9592c-a7b8-457c-a461-bf3fb2d48d6a",
+      "type": "sentence",
+      "title": "The latter is obtained from CR...",
+      "level": 99,
+      "content": "The latter is obtained from CRYSTAL14 software using the same basis set as the reference calculation (pob-DZVP)."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-319cb4b3-39e2-42e3-97a3-a82fc74471e1",
+      "type": "sentence",
+      "title": "As anticipated, discrepancies ...",
+      "level": 99,
+      "content": "As anticipated, discrepancies are more significant in the off-diagonal region of the 1-RDM (Fig.~ (a))."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-809e6db8-6b20-4aba-bc5e-d28ac2d90844",
+      "type": "sentence",
+      "title": "The model, constrained by the ...",
+      "level": 99,
+      "content": "The model, constrained by the N-representability conditions, obviously struggles to get sensible information from the weak Compton anisotropies buried under the noise."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-aa1a7b3f-a6f9-4095-b5d4-6bbb2c9d3e3a",
+      "type": "sentence",
+      "title": "It is evidenced by the noticea...",
+      "level": 99,
+      "content": "It is evidenced by the noticeable mismatch of anisotropy oscillations shown in Fig.~ (filled red triangles)."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-284a7334-856c-48b6-962e-857dd591e8ab",
+      "type": "sentence",
+      "title": "Nevertheless, it can be seen t...",
+      "level": 99,
+      "content": "Nevertheless, it can be seen that the deviation of reconstructed DCP anisotropy is still moderate, possibly due to the information carried by structure factors data."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-f2303518-ecd3-4514-a24d-4dd759d77fbc",
+      "type": "sentence",
+      "title": "This assumption is validated a...",
+      "level": 99,
+      "content": "This assumption is validated after observing further deterioration when SF are removed from the data (filled blue triangles)."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-cd7136a3-3c98-4829-9786-0c6a800d4fd1",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{figure}\n    \\includegraphics{Fig4.pdf}\n    \\caption{a) Deformation density on C-O-N reference plan (left) and reconstruction with 0 K 1\\% noisy data (right). b) Deformation density reconstructed from 50 K 1\\% noisy data with (left) and without (right) core electron and symmetry restrictions. \\\\ The contours are drawn at the same levels as Fig.~.}\n\\end{figure}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-f8b7f49f-d6bc-495b-a84f-c6670919fe19",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{figure}\n    \\includegraphics{Fig4.pdf}\n    \\caption{a) Deformation density on C-O-N reference plan (left) and reconstruction with 0 K 1\\% noisy data (right). b) Deformation density reconstructed from 50 K 1\\% noisy data with (left) and without (right) core electron and symmetry restrictions. \\\\ The contours are drawn at the same levels as Fig.~.}\n\\end{figure}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b0360639-20ab-4f8d-a51a-5237c869530d",
+      "type": "sentence",
+      "title": "figure...",
+      "level": 99,
+      "content": "figure"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-52fa6cd3-ef47-4bf9-aefb-f0abce98a756",
+      "type": "sentence",
+      "title": "figure...",
+      "level": 99,
+      "content": "figure"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-172fbb55-af22-485b-8451-7a7a7eb928be",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{figure}\n    \\includegraphics{Fig5.pdf}\n    \\caption{Reference (dots) and reconstructed (lines) DCP anisotropy at [110] direction without (circles) and with 1\\% noise (triangles). The dotted line shows the reconstruction without the use of SF artificial-data. The purple shaded area indicates the standard deviation of reconstruction upon resampling from the noise distribution.}\n\\end{figure}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-84e29ca3-0a54-4355-8bba-d8fe5e0a9df2",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{figure}\n    \\includegraphics{Fig5.pdf}\n    \\caption{Reference (dots) and reconstructed (lines) DCP anisotropy at [110] direction without (circles) and with 1\\% noise (triangles). The dotted line shows the reconstruction without the use of SF artificial-data. The purple shaded area indicates the standard deviation of reconstruction upon resampling from the noise distribution.}\n\\end{figure}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-280ea080-b4e2-4c3e-a3a4-8b03af0b0601",
+      "type": "sentence",
+      "title": "figure...",
+      "level": 99,
+      "content": "figure"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-1bdcc3ed-0153-494b-ba98-8b6acececa53",
+      "type": "sentence",
+      "title": "figure...",
+      "level": 99,
+      "content": "figure"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-3e51ae9a-5085-414a-8856-57a49834aa23",
+      "type": "sentence",
+      "title": "For the proposed model, deconv...",
+      "level": 99,
+      "content": "For the proposed model, deconvolution of temperature effects constitutes a difficult challenge."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-6ebc1f0f-9372-4b2d-800d-e7ba6eef959f",
+      "type": "sentence",
+      "title": "In contrast to most common ele...",
+      "level": 99,
+      "content": "In contrast to most common electron density reconstructions, using, for example, the widely spread kappa-refinement pseudo-atom multipolar model , our approach to 1-RDM determination relies on a linear expression which, combined with linear constraints (Sec. ), makes it possible to use positive semi-definite programming methodology."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-87ed799c-fe39-4f45-befa-8e6f2dd94451",
+      "type": "sentence",
+      "title": "Insertion of the Debye-Waller ...",
+      "level": 99,
+      "content": "Insertion of the Debye-Waller formulation to account for the thermal effect destroys such a linearity."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b4369609-2533-4958-9013-de8d8e91b662",
+      "type": "sentence",
+      "title": "While an alternative formulati...",
+      "level": 99,
+      "content": "While an alternative formulation is currently under development, it was decided for the present work to explore the possibility of treating sequentially both problems."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-cb619c36-f47f-40b6-9563-a36882578baa",
+      "type": "sentence",
+      "title": "First, an ab-initio 1-RDM is c...",
+      "level": 99,
+      "content": "First, an ab-initio 1-RDM is computed with the basis set of the model."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-e1fb432b-d9f6-470a-9900-39c9e407c202",
+      "type": "sentence",
+      "title": "Then, the Atomic Displacement ...",
+      "level": 99,
+      "content": "Then, the Atomic Displacement Parameters (ADP) are determined from high-order structure factors ($\\sin\\theta/\\lambda>0.7$ \\invangs) as explained in Sec.~."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-1b6715a7-9918-4739-b093-93d6fda9a775",
+      "type": "sentence",
+      "title": "Then, these ADP values $\\mathb...",
+      "level": 99,
+      "content": "Then, these ADP values $\\mathbf{B}$ are fixed and incorporated into the model."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-c13c606d-dc39-4040-913a-e6db549779ef",
+      "type": "sentence",
+      "title": "Therefore, the model remains l...",
+      "level": 99,
+      "content": "Therefore, the model remains linear for the 1-RDM refinement step, since a mere factor $e^{-\\mathbf{q} \\cdot \\mathbf{B} \\cdot \\mathbf{q}}$ is added to the SF operators."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b4a88a36-0283-4606-ae9a-abab3a411775",
+      "type": "sentence",
+      "title": "The quality of such ADPs depen...",
+      "level": 99,
+      "content": "The quality of such ADPs depends heavily on the model basis-set, and one cannot expect the refined $\\mathbf{P}$ matrix to be exempt from thermal motion contamination."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-2b3e719a-7af6-4727-a5e1-44b6a486d0a6",
+      "type": "sentence",
+      "title": "As shown in the lower panel of...",
+      "level": 99,
+      "content": "As shown in the lower panel of Fig.~(b) and Fig.~(b), the reconstructed 1-RDM and deformation density continue to worsen, which is clear evidence that the thermal motion effect has not been thoroughly deconvoluted."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-198c7c74-ca84-462b-89d6-6bb3accba5ae",
+      "type": "sentence",
+      "title": "Although Compton data is assum...",
+      "level": 99,
+      "content": "Although Compton data is assumed to be unperturbed at such low temperatures, the off-diagonal region continues deteriorating."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b9e4a5de-64b1-427e-b078-1eb384b92e21",
+      "type": "sentence",
+      "title": "It must be attributed to the s...",
+      "level": 99,
+      "content": "It must be attributed to the sparsity of reliable information from momentum space, which cannot be compensated for by the SFs. Our independent-atom Debye-Waller description's poor performance is clearly shown by unphysical electron depletion in the vicinity of nitrogen centres shown in Fig.~(b)."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-3e007e2a-da07-4ab0-bb9e-206af04a598e",
+      "type": "sentence",
+      "title": "Further, it is confirmed by th...",
+      "level": 99,
+      "content": "Further, it is confirmed by the significant differences between the refined and reference (from CRYSTAL14) ADP for the nitrogen nuclei (about 25\\% discrepancy)."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-f5333e25-1157-4549-ae66-4e97f6f71b70",
+      "type": "sentence",
+      "title": "When real data is involved, th...",
+      "level": 99,
+      "content": "When real data is involved, this very crude scheme will necessitate the addition of the previously mentioned two-centre terms in and a more thorough inclusion of the Debye-Waller contribution in the general refinement."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-d541e7bc-2b38-494b-bc3f-4281e0c1558a",
+      "type": "sentence",
+      "title": "The feature is currently being...",
+      "level": 99,
+      "content": "The feature is currently being implemented."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "type": "subsection",
+      "title": "Further restrictions: frozen-core and symmetry",
+      "level": 4,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-ad8b1205-7a7d-43f0-99ec-293ebe696a11",
+      "type": "sentence",
+      "title": "In the previous section, we di...",
+      "level": 99,
+      "content": "In the previous section, we discussed how the combination of noise and thermal motion affects the 1-RDM reconstruction using ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-5685f4a4-0649-48dc-8b14-9141674e1096",
+      "type": "sentence",
+      "title": "To mitigate such problems, a p...",
+      "level": 99,
+      "content": "To mitigate such problems, a possible method is to reduce the degree of freedom of the model, thus making it more robust against noise contamination."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-3d93fe8e-b9b1-48a8-a716-4a8a6a7cfce3",
+      "type": "sentence",
+      "title": "As introduced in Sec.~\\ref{sec...",
+      "level": 99,
+      "content": "As introduced in Sec.~, one would naturally first invoke the necessity of applying symmetry restrictions to the model."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-8627d962-be11-4a8c-8347-d405b7032af3",
+      "type": "sentence",
+      "title": "An overall improvement in reco...",
+      "level": 99,
+      "content": "An overall improvement in reconstruction quality is observed as unnecessary free parameters are eliminated."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-4393c352-a120-4d8a-9fec-af0927dc862e",
+      "type": "sentence",
+      "title": "A further limitation of the ac...",
+      "level": 99,
+      "content": "A further limitation of the active space is obtained by freezing the core electron contribution to the density matrix."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-1e2ad27f-ad76-48eb-ab84-9e7895deabb0",
+      "type": "sentence",
+      "title": "This well-spread procedure doe...",
+      "level": 99,
+      "content": "This well-spread procedure does not affect our ability to absorb momentum space data, which primarily describes delocalised valence electrons."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-9c6ac268-052d-4b39-94fe-f623ea4ef2fd",
+      "type": "sentence",
+      "title": "On the SF side, freezing the c...",
+      "level": 99,
+      "content": "On the SF side, freezing the core component of the 1-RDM helps stabilise the refinement against high-order reflections, which are the most affected by the noise and nuclear motion, while preserving nearly all the model's flexibility."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-02dc2196-f3ad-45a6-a7c5-05e2684a7a74",
+      "type": "sentence",
+      "title": "In this subsection, we report ...",
+      "level": 99,
+      "content": "In this subsection, we report the impact of such a scheme under the non-ideal reconstruction scenarios."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-0d353ced-b116-48e8-b00d-937e8b825038",
+      "type": "sentence",
+      "title": "When the frozen-core and symme...",
+      "level": 99,
+      "content": "When the frozen-core and symmetry restrictions are added to those concerning N-representability, Fig.~ (b - upper panel) shows that the distortion in the reconstructed 1-RDM is greatly reduced."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-6cb906eb-5956-4c94-8cf3-3199a1f5e65d",
+      "type": "sentence",
+      "title": "In this case, even in the pres...",
+      "level": 99,
+      "content": "In this case, even in the presence of noise and thermal agitation, the model catches most of the features observed in the reference 1-RDM (Fig.~(a)."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-da7caf54-79ad-4506-b127-461e87c7ce5d",
+      "type": "sentence",
+      "title": "Note that the most significant...",
+      "level": 99,
+      "content": "Note that the most significant discrepancy is in the off-diagonal region corresponding to the long-range interaction between hydrogen and carbon, which are second neighbours."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-a4207330-05e9-44f5-b059-b6bcf57816bf",
+      "type": "sentence",
+      "title": "Such a striking improvement co...",
+      "level": 99,
+      "content": "Such a striking improvement confirms that limiting the active space can effectively improve the reconstruction's robustness against noise."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-9154453d-63ec-46b3-a6aa-f5de87b14b5e",
+      "type": "sentence",
+      "title": "The standard deviation on the ...",
+      "level": 99,
+      "content": "The standard deviation on the reconstructed 1-RDMs with and without additional constraints (Fig. (c)) was estimated upon resampling from the Gaussian noise distribution."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-feabe916-ed57-445b-a33d-4078bb4a5a74",
+      "type": "sentence",
+      "title": "It is observed that the restri...",
+      "level": 99,
+      "content": "It is observed that the restriction of active space distinctly diminishes the uncertainty of the reconstruction."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-5e23848c-5d2f-41b6-98af-ca44a748f97a",
+      "type": "sentence",
+      "title": "Interestingly, such a betterme...",
+      "level": 99,
+      "content": "Interestingly, such a betterment in the 1-RDM modelling brings only minor changes to the resulting deformation density near the nuclei."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-c04e2a1e-905f-4910-b012-f7885c633861",
+      "type": "sentence",
+      "title": "Similarly, no major improvemen...",
+      "level": 99,
+      "content": "Similarly, no major improvement is observed for the DCP anisotropy reconstruction (see Supplementary Information)."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-e995e534-1546-4a4f-9e3a-a2f90df93f4e",
+      "type": "sentence",
+      "title": "This seemingly paradoxical obs...",
+      "level": 99,
+      "content": "This seemingly paradoxical observation can be resolved when adopting an optimization problem perspective."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-166a494f-e29e-4d2f-bcc5-0214a9f9dc09",
+      "type": "sentence",
+      "title": "As mentioned earlier, the 1-RD...",
+      "level": 99,
+      "content": "As mentioned earlier, the 1-RDM reconstruction was defined through as a least-squares minimization problem given the SF and DCP data."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-c655f4d6-e524-40d8-9409-8bfb620bcb03",
+      "type": "sentence",
+      "title": "Therefore, introducing constra...",
+      "level": 99,
+      "content": "Therefore, introducing constraints such as - can only result in a new optimal solution with higher $\\chi^2$ value, i.e. a worse fit to the SF and DCP."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-d5c35503-5b2a-455e-bd35-ac1e2ee2a532",
+      "type": "sentence",
+      "title": "Consequently, the DCP anisotro...",
+      "level": 99,
+      "content": "Consequently, the DCP anisotropies and deformation density are not likely to be improved because they only depend on our ability to fit the Compton data and a set of Fourier coefficients of the electron density."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b9f78a7b-160d-4c39-ac80-90516090f18c",
+      "type": "sentence",
+      "title": "However, a 1-RDM is a function...",
+      "level": 99,
+      "content": "However, a 1-RDM is a function in 6-D space which contains more information than its limited number of projections given by the data values."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-8faee992-2ea2-42ca-a294-fb19a0dde4dd",
+      "type": "sentence",
+      "title": "In such a case, it is well-fou...",
+      "level": 99,
+      "content": "In such a case, it is well-founded to believe that restricting the size of solution space effectively regularizes the model, giving it stronger predictive ability."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-5343804c-c3f1-402a-af43-bc77985138c7",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{figure}\n    \\includegraphics{Fig5.pdf}\n    \\caption{Mean field energy (see text) of one urea molecule reconstructed from 1\\% noisy data. Dashed and solid lines with circle and triangle data points represent the reconstruction with 0 K and 50 K SF data, respectively, and with identical Compton data. Blue lines show the reconstruction with no additional constraints. Light blue and red lines show the results when symmetry and core electron constraints are used. The purple dotted line shows the virial ratio of a 0 K 1\\% noisy data reconstruction with additional restrictions.}\n\\end{figure}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-55c752be-44e8-4734-9f28-879657c321b6",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{figure}\n    \\includegraphics{Fig5.pdf}\n    \\caption{Mean field energy (see text) of one urea molecule reconstructed from 1\\% noisy data. Dashed and solid lines with circle and triangle data points represent the reconstruction with 0 K and 50 K SF data, respectively, and with identical Compton data. Blue lines show the reconstruction with no additional constraints. Light blue and red lines show the results when symmetry and core electron constraints are used. The purple dotted line shows the virial ratio of a 0 K 1\\% noisy data reconstruction with additional restrictions.}\n\\end{figure}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-7e8a67c3-ccc0-4ce5-ac34-5c12a2f10d45",
+      "type": "sentence",
+      "title": "figure...",
+      "level": 99,
+      "content": "figure"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-8709cdcc-49a7-402c-9dda-3df0d90eb6da",
+      "type": "sentence",
+      "title": "figure...",
+      "level": 99,
+      "content": "figure"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-d8522f39-0fbe-4a5c-be19-e8d41e7bf537",
+      "type": "sentence",
+      "title": "Estimating the total electron ...",
+      "level": 99,
+      "content": "Estimating the total electron energy from experimental SF is a well-known, difficult challenge."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-863f2f5b-f4b3-4f89-90e3-ca3cae65ddfd",
+      "type": "sentence",
+      "title": "Adding Compton scattering info...",
+      "level": 99,
+      "content": "Adding Compton scattering information does not significantly facilitate the task."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-3b0f773c-738e-41de-8e23-51c82e9c71a4",
+      "type": "sentence",
+      "title": "However, on a mere relative sc...",
+      "level": 99,
+      "content": "However, on a mere relative scale, the energy criterion can be employed to compare the performances of different refinement strategies."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-d23d8efc-5c75-43ea-8e76-0dfcd4d93eeb",
+      "type": "sentence",
+      "title": "Throughout this work, a recurr...",
+      "level": 99,
+      "content": "Throughout this work, a recurrent question has been to evaluate the optimal cut-off value in $\\sin\\theta/\\lambda$ for the structure factors."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-a9045363-ff2e-4e2e-a4dc-829fff1c0ac6",
+      "type": "sentence",
+      "title": "In a perfect world, free from ...",
+      "level": 99,
+      "content": "In a perfect world, free from thermal motion, high-Miller-indices reflections should be retained as long as they rise above statistical noise."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b481ee15-0286-48f2-83f2-93c712e64547",
+      "type": "sentence",
+      "title": "The solid curve in Fig. \\ref{f...",
+      "level": 99,
+      "content": "The solid curve in Fig. shows that, for an ideal 0 K set of SF, the total electron energy stabilizes for any cut-off value above 0.7 \\invangs."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-2bcf57ff-eafe-4611-b6f0-b7b610ebda17",
+      "type": "sentence",
+      "title": "It is no longer true when data...",
+      "level": 99,
+      "content": "It is no longer true when data values are affected by temperature agitation."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-4942d775-c583-4eb0-b408-bf12792fe179",
+      "type": "sentence",
+      "title": "In the 50 K case (dashed curve...",
+      "level": 99,
+      "content": "In the 50 K case (dashed curve), SF corresponding to $\\sin\\theta/\\lambda > 0.7$ \\invangs contribute to a significant deterioration of the reconstruction from an electron-energy perspective."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-549e8f7d-d821-4eb6-96db-a0e9c85d48b1",
+      "type": "sentence",
+      "title": "As shown in Fig. \\ref{fig5} (a...",
+      "level": 99,
+      "content": "As shown in Fig. (all dashed-curves), minimum energy is reached when only reflections lower than 0.7 \\invangs are included in the set."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-5d140311-80cc-43d3-96e2-1f661d13eea5",
+      "type": "sentence",
+      "title": "Then, as one increases the Ewa...",
+      "level": 99,
+      "content": "Then, as one increases the Ewald sphere radius, the total energy starts rising continuously."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-d20061fa-3f7a-4666-a099-2e174a07fd6b",
+      "type": "sentence",
+      "title": "This confirms that the additio...",
+      "level": 99,
+      "content": "This confirms that the additional high-order reflections, which are the most affected by thermal motion, are not sufficiently well deconvoluted by the one-centre Debye-Waller model and merely contribute to perturbing the refinement process."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-dceb1207-3f87-4e76-b7dd-994a6aaa94e2",
+      "type": "sentence",
+      "title": "When symmetry enforcement alon...",
+      "level": 99,
+      "content": "When symmetry enforcement alone is applied, an overall betterment can already be observed under 0 K and 50 K scenarios."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-d9c1283a-c3cf-4d21-9d52-ee9ecf8a969b",
+      "type": "sentence",
+      "title": "More remarkably, introducing a...",
+      "level": 99,
+      "content": "More remarkably, introducing an additional frozen-core component not only further reduces the perturbation instilled by high-order reflections but also dramatically improves the reconstruction ability when only a small amount of reflection data is available."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-1f0d4f7d-e1a7-42e3-80ce-4c3b50ed31e5",
+      "type": "sentence",
+      "title": "Thus, both restrictions effect...",
+      "level": 99,
+      "content": "Thus, both restrictions effectively increase the stability of the model by filtering out most of the perturbation brought by thermal motion and noise contamination and by reducing the number of unnecessary free parameters."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-7d478167-85f8-4d42-a82e-eba78af5ba67",
+      "type": "sentence",
+      "title": "In addition, the behaviour of ...",
+      "level": 99,
+      "content": "In addition, the behaviour of the fully restricted model in the reduced $q_{\\text{max}}$ domain suggests the possibility of reconstructing the 1-RDM with a limited amount of low-angle SF data, those that describe the most diffused electrons."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b0a4dec2-8adc-4064-99c7-560428d8748f",
+      "type": "sentence",
+      "title": "Let us insist that the Hartree...",
+      "level": 99,
+      "content": "Let us insist that the Hartree-Fock-like energy computed here is only meaningful as an indicator of the reconstruction quality since it uses both position and momentum space electron densities."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-21b85414-af30-49c4-b062-692e78febf32",
+      "type": "sentence",
+      "title": "However, due to the intrinsic ...",
+      "level": 99,
+      "content": "However, due to the intrinsic difficulty of predicting energy from 1-RDMs, the question of whether one could accurately determine the total (or interaction) energy from scattering experiments should be left for more careful examination and discussion."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "type": "section",
+      "title": "Conclusion and Discussion",
+      "level": 3,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-68abaccd-ec2a-4f88-bcd1-d72c680dd368",
+      "type": "sentence",
+      "title": "In this work, an improved 1-RD...",
+      "level": 99,
+      "content": "In this work, an improved 1-RDM reconstruction method has been tested on a system which is significantly larger than those previously investigated ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-54a80f56-3e96-4b60-9833-e0967a121fb8",
+      "type": "sentence",
+      "title": "The crucial role played by mom...",
+      "level": 99,
+      "content": "The crucial role played by momentum space information, originating from Compton scattering data, is confirmed."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b8febe9a-2e1f-49f7-be0e-b18e3acab224",
+      "type": "sentence",
+      "title": "It is instrumental in the qual...",
+      "level": 99,
+      "content": "It is instrumental in the quality of the reconstruction, even when the weak anisotropy is buried under statistical noise."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-c2ea47ad-0c44-4d17-a79e-d81e21a6861a",
+      "type": "sentence",
+      "title": "The two main additions to the ...",
+      "level": 99,
+      "content": "The two main additions to the model, symmetry restrictions and frozen-core contributions, are evidenced to drastically stabilize the 1-RDM reconstruction process against statistical noise and temperature effects."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-309582ec-98d8-4945-9e2a-f06bef75a5cb",
+      "type": "sentence",
+      "title": "Meanwhile, with no additional ...",
+      "level": 99,
+      "content": "Meanwhile, with no additional constraints, it is shown that the resulting energies, evaluated from the modelled 1-RDM, closely satisfy the virial theorem."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-3283264b-bb44-49b2-913b-190b069c3cb2",
+      "type": "sentence",
+      "title": "As a consequence, the approxim...",
+      "level": 99,
+      "content": "As a consequence, the approximated total energy and virial ratio were found to be valuable indicators to identify an optimal portion of the Ewald sphere, which balances pertinent information and noise contamination."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-4e7877aa-124e-4a58-9f17-79f85192b94a",
+      "type": "sentence",
+      "title": "However, proper deconvolution ...",
+      "level": 99,
+      "content": "However, proper deconvolution of temperature-induced nuclear motion remains a challenging problem."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-dce4bf59-fc67-4a3f-943d-9080dcec5563",
+      "type": "sentence",
+      "title": "In the current approach, two m...",
+      "level": 99,
+      "content": "In the current approach, two main obstacles have been identified."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-4a384067-9c54-439b-b42f-973431c73d82",
+      "type": "sentence",
+      "title": "Firstly, our choice of limitin...",
+      "level": 99,
+      "content": "Firstly, our choice of limiting the flexibility of the temperature model and the basis set to avoid bias in the assessment."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-d88dfeeb-3d9b-4575-ad03-019aa26bca5b",
+      "type": "sentence",
+      "title": "Secondly, the necessity of kee...",
+      "level": 99,
+      "content": "Secondly, the necessity of keeping the 1-RDM model linear."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-f0079d3a-1d60-42cc-a2a9-2fcf5743e414",
+      "type": "sentence",
+      "title": "Both inevitably led to strong ...",
+      "level": 99,
+      "content": "Both inevitably led to strong discrepancies in atomic displacement parameters but allowed for a reliable assessment of the model's stability."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-395d056a-6082-48a3-a022-dad52e2fb9f2",
+      "type": "sentence",
+      "title": "Moreover, we have good reasons...",
+      "level": 99,
+      "content": "Moreover, we have good reasons to believe that using a non-linear version of the optimization, including two-centre temperature factors and a better basis set, will drastically improve the performance when real experimental data is considered."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-5492b7d2-3ce7-4e94-b221-cbfbe62bebbd",
+      "type": "sentence",
+      "title": "The current method for 1-RDM r...",
+      "level": 99,
+      "content": "The current method for 1-RDM reconstruction is essentially a statistical inference procedure."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-11c5baa9-fb61-4d1f-8bd9-b6a6bfd42288",
+      "type": "sentence",
+      "title": "Therefore, the quality of its ...",
+      "level": 99,
+      "content": "Therefore, the quality of its outcome depends not only on the data distribution but also on the prior distribution of the model."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-e7cc3a3f-c24f-4e93-afc1-1ee582d61ffe",
+      "type": "sentence",
+      "title": "In the present stage, a unifor...",
+      "level": 99,
+      "content": "In the present stage, a uniform prior was used, which means no prior knowledge is assumed."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-0b9bcda5-476e-485d-b993-fa8a6b97441e",
+      "type": "sentence",
+      "title": "In the future, one could consi...",
+      "level": 99,
+      "content": "In the future, one could consider a more informed prior, for example, a Gaussian distribution centred on a lower-level theory calculation."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-1d8cc7dc-dfa6-4966-8e73-e4173cdef7c9",
+      "type": "sentence",
+      "title": "The use of additional priors w...",
+      "level": 99,
+      "content": "The use of additional priors will help the model's performance, especially in the case of poor data quality."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-64900e6a-8f1d-4184-952b-4e29824ad548",
+      "type": "sentence",
+      "title": "Finally, our results illustrat...",
+      "level": 99,
+      "content": "Finally, our results illustrate that 1-RDM reconstruction is achievable for a system of moderate size from X-ray structure factors and directional Compton profile measurements, even when the momentum space information is drastically limited."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-4b063090-ffc6-4779-9378-cb9e55c6fece",
+      "type": "sentence",
+      "title": "In the next step, such a metho...",
+      "level": 99,
+      "content": "In the next step, such a method can be readily applied to actual experimental data. Acknowledgements: The authors thank Devinder Sivia, Pietro Cortona and Julie McDonald for their insightful comments and discussions."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-cfb080b8-d51a-4769-b4b8-be673f3e88d3",
+      "type": "sentence",
+      "title": "S....",
+      "level": 99,
+      "content": "S."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-036cd47e-2657-40e5-b377-570537f1ff62",
+      "type": "sentence",
+      "title": "Y. gratefully acknowledges fun...",
+      "level": 99,
+      "content": "Y. gratefully acknowledges funding from the Chinese Scholarship Council."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-96df761b-e56c-497a-9e80-029ca672afe5",
+      "type": "sentence",
+      "title": "Part of the computations are c...",
+      "level": 99,
+      "content": "Part of the computations are conducted on the clusters of Paris-Saclay University, which is gratefully acknowledged. \\onecolumngrid"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-section-c0d45f50-da79-4a42-a509-2402b417aa68",
+      "type": "section",
+      "title": "Supplementary Information",
+      "level": 3,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-222e72b5-e453-46ae-9a14-ca95c7bf25cf",
+      "type": "sentence",
+      "title": "\\setcounter{figure}{0} \\renewc...",
+      "level": 99,
+      "content": "\\setcounter{figure}{0} \\renewcommand{\\thefigure}{S\\arabic{figure}} \\setcounter{table}{0} \\renewcommand{\\thetable}{S\\arabic{table}} \\setcounter{page}{1}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-subsection-9ca0c7a6-1f0c-4c83-bae6-36a9b23800b3",
+      "type": "subsection",
+      "title": "Fitting score",
+      "level": 4,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-4ee6f1da-81b6-49e2-9946-7ed1ed91b9e1",
+      "type": "sentence",
+      "title": "Here, we list the unweighted f...",
+      "level": 99,
+      "content": "Here, we list the unweighted fitting scores $\\chi^2$ for different data sets and reconstructions."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-a127b542-ec0b-449b-ad30-92e234b93358",
+      "type": "sentence",
+      "title": "We note $\\tilde{\\chi}^2_{\\text...",
+      "level": 99,
+      "content": "We note $\\tilde{\\chi}^2_{\\text{total}}$ the value of the objective function in the optimization procedure and $\\chi^2_{\\text{total}}$ the fitting score computed on the entire range of 0 K, noise-free artificial-data."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-59320bc4-ce68-43a6-a20c-276ff9a47c8c",
+      "type": "sentence",
+      "title": "Firstly, it can be observed th...",
+      "level": 99,
+      "content": "Firstly, it can be observed that while the optimal objective function values for the 0 K and 50 K scenarios are similar, the $\\chi^2_{\\text{SF}}$ is substantially larger than the $\\tilde{\\chi}^2_{\\text{SF}}$ in the 50 K case, suggesting that the thermal motion is not perfectly accounted for by ."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-5402bc2c-a7b6-4338-8619-4c9d72b08d43",
+      "type": "sentence",
+      "title": "Secondly, in both the 0 K and ...",
+      "level": 99,
+      "content": "Secondly, in both the 0 K and 50 K cases, restrictions lead to an increase in the optimal fitting score $\\tilde{\\chi}^2_{\\text{total}}$ (for noised 0 K and 50 K data), but a decrease of the ${\\chi}^2_{\\text{total}}$ (noise-free 0 K)."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-ba68ab8c-feec-4871-b59e-0d45fffb1f5d",
+      "type": "sentence",
+      "title": "Such an observation quantitati...",
+      "level": 99,
+      "content": "Such an observation quantitatively confirms the assumption that restrictions act as regularization, thereby improving reconstruction results."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-125350a0-0627-4edb-8d08-4957086277a9",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{table}\n    \n\\end{table}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-61bdfc21-e024-41b9-97f2-618b820f707b",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{table}\n    \n\\end{table}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-0dc3e9fa-6bba-4148-a59d-7408a12f0a5a",
+      "type": "sentence",
+      "title": "table...",
+      "level": 99,
+      "content": "table"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-67e4d244-045a-4c16-8262-7d0b676582d3",
+      "type": "sentence",
+      "title": "table...",
+      "level": 99,
+      "content": "table"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-subsection-7f4f7eb6-5ef8-4307-ad38-75e04aef8385",
+      "type": "subsection",
+      "title": "Mean-field energies",
+      "level": 4,
+      "content": ""
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-b4baed0e-aac7-424b-b75a-58e0794eeda3",
+      "type": "sentence",
+      "title": "We list the energies evaluated...",
+      "level": 99,
+      "content": "We list the energies evaluated for different reconstructions."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-045daa3c-fd4b-4ba6-9234-79fbc0762841",
+      "type": "sentence",
+      "title": "Note that the potential energi...",
+      "level": 99,
+      "content": "Note that the potential energies, hence the total energies, are calculated with a Hartree-Fock Hamiltonian operator, which allows us to calculate an approximate energy with 1-RDMs. For reference, the energies of the DFT 1-RDM with the pob-DZVP basis set are $T_{\\text{DFT}} = 223.315, ~ E_{\\text{DFT}} = -225.005$."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-ef53a6dc-46e7-435c-8188-b92c3ed526be",
+      "type": "sentence",
+      "title": "However, one should keep in mi...",
+      "level": 99,
+      "content": "However, one should keep in mind that these energies are evaluated with different methods and different basis functions, and are not meant to be compared directly."
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-cbdcf57b-f873-4a63-a417-c0faf4308c04",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{table}\n    \n\\end{table}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-figure-80cf23d3-772b-423e-b5cf-33752450c9d5",
+      "type": "figure",
+      "title": "Figure/Table",
+      "level": 99,
+      "content": "\\begin{table}\n    \n\\end{table}"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-2007a239-7d16-4d29-a468-bb723bb44a07",
+      "type": "sentence",
+      "title": "table...",
+      "level": 99,
+      "content": "table"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-53fa5a1b-07e7-446d-87e7-f20742d38526",
+      "type": "sentence",
+      "title": "table...",
+      "level": 99,
+      "content": "table"
+    },
+    {
+      "id": "2403-00534-2403-00534v1-sentence-45aae965-d329-42ab-95e6-500c7fe1163b",
+      "type": "sentence",
+      "title": "\\end{document}...",
+      "level": 99,
+      "content": ""
+    }
+  ],
+  "edges": [
+    {
+      "from": "2403-00534-2403-00534v1-document-601ca67c-ffb5-4615-80b2-9a76803f50d5",
+      "to": "2403-00534-2403-00534v1-title-108b55bc-e6b0-4e7c-a056-83987adb5d7d"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-document-601ca67c-ffb5-4615-80b2-9a76803f50d5",
+      "to": "2403-00534-2403-00534v1-authors-aa9317ed-7865-4316-b217-cc02e9663847"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-document-601ca67c-ffb5-4615-80b2-9a76803f50d5",
+      "to": "2403-00534-2403-00534v1-abstract-986d7935-4dd0-4a93-83f7-9bed7b630e89"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-abstract-986d7935-4dd0-4a93-83f7-9bed7b630e89",
+      "to": "2403-00534-2403-00534v1-sentence-b9c1f5ea-b0d9-4ee5-bd91-6ad343267a87"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-abstract-986d7935-4dd0-4a93-83f7-9bed7b630e89",
+      "to": "2403-00534-2403-00534v1-sentence-0ddc7a75-02c7-49d7-9cf5-e68f16db81ee"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-abstract-986d7935-4dd0-4a93-83f7-9bed7b630e89",
+      "to": "2403-00534-2403-00534v1-sentence-97a746ef-2a6d-41aa-86e9-a1787ae389f9"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-abstract-986d7935-4dd0-4a93-83f7-9bed7b630e89",
+      "to": "2403-00534-2403-00534v1-sentence-b763ffa3-0f88-433e-a55f-822c81f75660"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-abstract-986d7935-4dd0-4a93-83f7-9bed7b630e89",
+      "to": "2403-00534-2403-00534v1-sentence-38d9069f-7eef-4f51-a851-3aabf0b58b17"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-abstract-986d7935-4dd0-4a93-83f7-9bed7b630e89",
+      "to": "2403-00534-2403-00534v1-sentence-940f3758-327c-4d1c-8459-db856c578272"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-document-601ca67c-ffb5-4615-80b2-9a76803f50d5",
+      "to": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-24470480-df73-4974-816e-5a86a3e49d00"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-3c98655d-a0b7-461a-9cfa-b2791646add7"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-f309882e-6d7b-4e3c-b2d5-364ae2700123"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-6bbf7e10-8d24-458b-a80d-02d72d92d04a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-5bed472a-ac1b-41f2-99c6-e3684a45cc8f"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-cce03285-2d2f-4d9d-8196-110cde6277d4"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-dcb71d82-eda5-4d8e-8cca-e0bc9a2ee00c"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-31155064-6f46-4cd7-969f-3cde213889d0"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-e744b547-d246-4e98-bc75-cf89538a186e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-3565f144-b511-4f59-bce5-58b62eab15bd"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-2e0d32a8-9a4b-4033-97f1-f429e81c0027"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-c2a3923f-0a38-41b4-9a6e-7cd91c7b20e7"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-aa994b8b-3d35-4f8d-bed4-9e5eb9cc673e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-07799894-7113-4de1-9027-aee39362310a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-b0d57c95-0865-4e58-b354-975fa70a26c0"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-b4d6e547-093a-4682-b3df-590cb2937226"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-7728de8f-3b78-4437-8e4b-3ce54d17586f"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-24bfa07d-cfd3-465d-ae41-9cee1a4454c5"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-9b0187ca-fc09-4dbd-82d6-5abab8657f76"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-77430887-edf3-451a-94df-623f0c05e930"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-7205df37-81fc-45e0-b629-643491b10731"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-b89ccb3c-6c9d-446e-9a16-39ec53471592"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-6de14b22-94e2-454c-9df4-996d96f70fb6",
+      "to": "2403-00534-2403-00534v1-sentence-ef4b2d77-38cd-4803-b8d9-c190b6fb78aa"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-document-601ca67c-ffb5-4615-80b2-9a76803f50d5",
+      "to": "2403-00534-2403-00534v1-section-a13faa9d-aa65-4187-832d-76a333d17e4d"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-a13faa9d-aa65-4187-832d-76a333d17e4d",
+      "to": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-720e2425-6037-4940-9db2-956bcca7c51b"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-equation-d4be3a3b-9927-407f-b0b3-e986ff722dcf"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-equation-a1fd19fc-704b-41ed-9625-2f16d2d478a4"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-43771667-76ea-4b25-9f28-a699053e2c08"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-c88e08cb-3d88-4432-b0da-ea1e404a3d9e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-equation-e16bd794-0936-4893-8dec-b999068ed12e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-equation-ea6cc71a-c2b7-4c7e-84ba-4cb472def653"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-c6a7ff0d-032d-4526-bb86-56b6f08523b1"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-420307c6-ea38-4135-8812-c2ed55579e64"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-b772b816-c0c6-4935-9a16-79c7a365b7cd"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-7349b8ba-d85e-4151-a7a7-ea896f4c66b7"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-equation-03b2ca95-09cd-4d38-9605-0db6a1621210"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-equation-9f8d5b97-7251-48ad-bcb4-be7903e742a1"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-873f6ae7-fbac-4337-b212-9b643f32f3d5"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-equation-d918a03b-b20d-409d-8930-fa607eb1ee56"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-equation-9324b71b-51ea-4a39-a870-354cd17b69d1"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-b2497fe3-13ee-4e3d-99fe-fefec068dfcc"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-13d9fa97-a578-4bb0-95b0-3b5696aee8a7"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-a90162e2-5494-4979-9f5d-e95f363eee86"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-69d2622d-16f9-4440-966b-3a49e3815dca"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-equation-78342808-b15d-4e5d-a98b-c23657908de0"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-equation-5465f0ab-0aed-4821-832b-3d6275211616"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-40239497-03d1-4eba-b04a-956e1696c1a7"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-8593009d-2fb4-4c9f-871a-8fb8f6dff10b"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-6568e979-3ea2-41ec-9f45-70ebd5b547b0"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-310b866f-6478-427b-ace5-e89a4c982503"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-c47c42ed-4810-42d8-8b4f-8bcf90aee84d"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-equation-5c8b5bc0-ff2a-49bd-ba5d-d88bfc48257f"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-equation-030f1484-4e86-4ff0-a1bc-3023f3aafa45"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-33294921-f09e-414e-bc58-a010f74c6d1f"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-ebc525fd-6fa2-4634-b8fd-37699830980f"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-51e39732-fbe5-4bbd-8cd8-f5efca4d157a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-e54c23c3-14dd-42c5-94d1-f672cf90aee9"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-equation-14eab57b-748f-44d7-a2ad-834c96fbbf71"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-equation-e66d4da1-3cff-41d4-90b3-31f70b02893f"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-fa624125-9fe8-403c-8929-c05301fc7754"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-efb2db08-47ab-42d3-be05-444e0aa3857c"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-cb582713-260c-4de5-9a22-a2da35d90830"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-85ac9c94-19b0-4ca6-9ce9-7402309fc223"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-637085ae-1e59-4e65-a339-f3444390acfd",
+      "to": "2403-00534-2403-00534v1-sentence-9c021b1d-90cb-4b5c-89f0-a984fe837fef"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-a13faa9d-aa65-4187-832d-76a333d17e4d",
+      "to": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-9ea4d6cd-6b48-4882-9a85-05f20320e663"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-54a20226-af76-4197-957c-de86308621d0"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-e813b8e8-1873-4fe3-9494-f1480560cef2"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-ec4c81a3-9921-4641-9d47-3f90b24601d1"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-ed21b5cf-399a-4dd4-a108-a4c9bc1f0c45"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-9c351956-ae25-45cb-a446-bd3ef05f062e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-dc14dd46-a2f8-48d1-9081-44e0d06ac377"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-332c19f2-f329-478f-a4d7-638499990bea"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-97f38608-0284-491a-9750-82def0190d37"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-97f52578-121a-4b75-8a90-5ceda5526fed"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-33b36f48-e1cc-4ad5-87c2-c304020be480"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-ed93a31d-c7bf-46db-90ca-f0f29627d45b"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-b9ea5a59-4a21-4a20-8cf4-2d168fed4b9d"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-cd9f422a-8c57-4164-aaeb-fb9d9fa8cd65"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-62da289d-9fe6-4f13-9b5b-f7729a61b8a4"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-57b5c640-5589-4680-b8da-8b6308ab85f9"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-26bdcd1e-ee00-413b-aeeb-7f3f2c5217b4"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-63f107f3-3556-4e7d-acf2-3a6a4f7c7b7c"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-c019cd68-2d0d-4ce6-8ef5-8b7563fb1d67"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-11ab123a-9dce-4a15-929a-fc5c13a81035"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-ee34bd7f-06c5-4c5d-8bfe-1b2952bd2b00"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-4c4798fe-63d6-429d-9c87-afc35ff91f61"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-bfd75ba2-f1a9-4976-a3bd-91afed7f500d"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-98e82b1f-eb27-4a60-8c82-e3ca6bb90b06"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-c933c75c-ebdf-4e3e-9fa5-481c3c852552"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-6de9588b-7059-4e1d-8d5f-e0a0deb5c87a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-3ed5e2cd-26d8-45d2-ad63-f5790e5fa9d7"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-5910fa43-b993-40cc-be90-d2af3aa042b1"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-89e63adf-26ad-4414-aaf9-c4de06f0943a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-5593f52e-d58a-4186-8e0f-343be0a59ee3"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-60fa2f45-4488-4ac9-842b-e379cefc6228"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-figure-4369b07b-6c1c-4f23-add0-8073c509cd46"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-figure-41671ecf-b42f-4a38-952f-ed8dd2a56e7d"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-448ed123-8edc-4155-8c15-eaba2cd575c6"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-2ffa33be-67cd-49f5-930b-02454571a87a",
+      "to": "2403-00534-2403-00534v1-sentence-6d871e73-0bcf-4a79-b8f8-06ac054241dc"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-a13faa9d-aa65-4187-832d-76a333d17e4d",
+      "to": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "to": "2403-00534-2403-00534v1-sentence-7b7fb19c-4cf2-48a9-adef-bc9969494402"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "to": "2403-00534-2403-00534v1-sentence-4628f434-9bd4-4293-8867-50e009106c90"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "to": "2403-00534-2403-00534v1-sentence-0a694eb7-ba09-4385-b5ab-c8cf56596f7d"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "to": "2403-00534-2403-00534v1-sentence-cea48f39-db05-41a4-82f7-4f412b405bd4"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "to": "2403-00534-2403-00534v1-sentence-7f21685d-f1b0-41dc-affa-47f6661c9565"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "to": "2403-00534-2403-00534v1-sentence-dfa87307-85f4-4c97-beae-f1d4496b4eaf"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "to": "2403-00534-2403-00534v1-equation-b2a9f137-46a2-482b-9d86-8475625704e7"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "to": "2403-00534-2403-00534v1-equation-c5b5a440-4ea6-40cd-97a1-db2dbcb94222"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "to": "2403-00534-2403-00534v1-sentence-2960f91b-21ea-4d10-bf19-98a45059ab52"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "to": "2403-00534-2403-00534v1-sentence-6dc7193b-3bb1-4862-a1f1-bfc6b7f4d0f5"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "to": "2403-00534-2403-00534v1-sentence-fe73f726-dfab-43b5-be2a-b5044983cd81"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "to": "2403-00534-2403-00534v1-sentence-b03a311d-fc97-450f-aa38-466aae5b4d71"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "to": "2403-00534-2403-00534v1-sentence-5ef88fb7-1cd2-4133-a71d-d96945a81435"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-89d92f65-26f9-4c67-adaa-bcd0ca6814d6",
+      "to": "2403-00534-2403-00534v1-sentence-be368851-4e0d-43bc-a0f7-6c203ef0ed96"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-document-601ca67c-ffb5-4615-80b2-9a76803f50d5",
+      "to": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-042f6975-6cca-4295-8fa2-f601fe76260c"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-e9a67ea1-f4d5-409a-937b-bdfdf7de1699"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-8d637bb2-8fc3-4b13-bf78-8d2b82ff33c1"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-cadb3f39-396d-4172-bba8-c0f42676c92f"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-841417fb-106f-4d17-b1b4-4ed6fcb8672f"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-3ca6507b-3856-4dd9-aa3c-694fbd3f7290"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-8e68ee3d-ef64-4b18-8b34-b5d06c725c2f"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-1f48cde4-198f-47a7-be61-05613d74c906"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-8b57fa3f-a459-4419-8706-34ebd195411f"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-191ad0aa-e4b7-49f9-acdf-278e792dc14f"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-878a1cf7-bbda-40d4-a80b-2f44915fbf8c"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-ef65122e-b18d-4d31-b24d-46fa3f1fba62"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-f3fb72e0-f6e1-4998-831d-e0edfee161d2"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-b01ef948-5d93-4a2a-a5d9-2161faa9616d"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-58c55007-8061-4c0f-862e-31b70a666d98"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-66a34c27-120b-4527-a385-17ebe3c28e35"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-7b44491b-22c0-4f7f-acd2-df2894a1939a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-sentence-c4cd150e-5afd-4ca2-a19f-63b115af098c"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-343a0b05-d7df-4e4c-8bb8-cfb215d4234b"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-62210e98-2ee7-494a-80e3-14314ea01fad"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-60d87de9-00b9-4aa7-a7c1-8ffb65224875"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-1a55d07d-9654-4a7d-b5f8-2c5e43ee3b04"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-8a7389df-59d7-476f-9609-3e1a119e7518"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-51cd02e0-d2e6-4af7-8729-c6804b7e252b"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-8db6b1a1-b74e-4732-a3a0-38a6a62141f8"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-a32f2777-5abb-425c-b896-486da0b3e8e0"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-80b681e2-db53-4496-8cec-f44f5df076e6"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-e74bc4fe-df84-47f5-adea-66055045023a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-b3206a05-ef75-4319-8f84-6a06e8a78697"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-8759c838-0777-48a4-98e0-2f8329c66d10"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-d3cd04ba-dce5-4c6f-87e8-ba70ab99d7d9"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-f2115a42-cd3a-4b48-a4bb-1fa7be14f770"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-b41edc44-e116-4d02-a10c-143d2597aed9"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-2b795c79-b9c7-4443-97ce-b862efe2765d"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-figure-76bd7d12-43c9-4d1a-bd62-e7e0f8d0c0f7"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-figure-df9e34ff-dc81-4571-86ae-4fbe4252db8c"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-c72e22d1-7707-47be-82d7-376066505200"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-2bc58d0c-a24c-4058-bc35-70f90d76a3d2"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-33d5e066-1d8c-4661-beff-b09cb9d83c3b"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-9b49433d-6ea7-459b-b6b4-a04105c5df4e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-8aa0d6cc-a43b-4e02-a10c-3d6248842c94"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-47b04692-9ad2-4a87-962b-b25a7a8246a9"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-eea205b3-0781-4a14-8135-f887ae23e811"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-be746082-a25c-49af-a299-02490161560c"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-36a30535-e36b-4b11-8486-104b06cafd60"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-b73cec52-b7e3-4ff8-8749-95a8a5b00136"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-55941d5d-6153-4c5b-829e-396657861d39",
+      "to": "2403-00534-2403-00534v1-sentence-8dc72e77-71b9-46da-a940-be6ab8c1f712"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-85a51054-a78e-4d60-b710-273b752bad5b"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-figure-1e175106-9caa-4a60-b99f-df45ec4dccf8"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-figure-ddd7de0c-2056-43c9-be18-d9c797e8d80e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-5f2371b1-dabb-4605-b040-091209eb75f8"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-570a8017-6c1c-4ae2-903a-ed8ce298b27e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-d1b6e3b1-3af1-4ee1-9978-bee39c10c786"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-9522f1df-c3de-4ae3-a7d3-34451479b676"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-ecfe9f41-0532-4cea-8775-6bed2ef276f5"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-84705721-014e-4eb0-8100-f46bb9c1734e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-ce3c65f4-c8f0-4a99-81f3-ab4b8856687d"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-6f726186-ed83-4773-b24c-21bc681d082c"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-4167d165-ec84-4fbb-9a42-01a92090f42e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-179412f2-c664-4500-8754-3132bf9da88f"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-55b6a82c-bf02-4550-8356-ae561755919e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-d8e3a7af-0d22-4a56-9870-5153148e3df6"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-314294a6-3f26-444d-b931-2254d9ba3dc2"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-335a95c4-10f5-4621-bfdd-a603e8b6c7c2"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-d9f95792-f8cd-4e6a-967f-ddbda5f9c2dd"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-cb4a2f2c-4d13-475b-b135-6c77e7192f1b"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-f3e9592c-a7b8-457c-a461-bf3fb2d48d6a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-319cb4b3-39e2-42e3-97a3-a82fc74471e1"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-809e6db8-6b20-4aba-bc5e-d28ac2d90844"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-aa1a7b3f-a6f9-4095-b5d4-6bbb2c9d3e3a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-284a7334-856c-48b6-962e-857dd591e8ab"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-f2303518-ecd3-4514-a24d-4dd759d77fbc"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-figure-cd7136a3-3c98-4829-9786-0c6a800d4fd1"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-figure-f8b7f49f-d6bc-495b-a84f-c6670919fe19"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-b0360639-20ab-4f8d-a51a-5237c869530d"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-52fa6cd3-ef47-4bf9-aefb-f0abce98a756"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-figure-172fbb55-af22-485b-8451-7a7a7eb928be"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-figure-84e29ca3-0a54-4355-8bba-d8fe5e0a9df2"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-280ea080-b4e2-4c3e-a3a4-8b03af0b0601"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-1bdcc3ed-0153-494b-ba98-8b6acececa53"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-3e51ae9a-5085-414a-8856-57a49834aa23"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-6ebc1f0f-9372-4b2d-800d-e7ba6eef959f"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-87ed799c-fe39-4f45-befa-8e6f2dd94451"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-b4369609-2533-4958-9013-de8d8e91b662"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-cb619c36-f47f-40b6-9563-a36882578baa"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-e1fb432b-d9f6-470a-9900-39c9e407c202"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-1b6715a7-9918-4739-b093-93d6fda9a775"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-c13c606d-dc39-4040-913a-e6db549779ef"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-b4a88a36-0283-4606-ae9a-abab3a411775"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-2b3e719a-7af6-4727-a5e1-44b6a486d0a6"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-198c7c74-ca84-462b-89d6-6bb3accba5ae"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-b9e4a5de-64b1-427e-b078-1eb384b92e21"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-3e007e2a-da07-4ab0-bb9e-206af04a598e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-f5333e25-1157-4549-ae66-4e97f6f71b70"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-f6a5aaa0-c955-4f09-81b4-6fc89538d844",
+      "to": "2403-00534-2403-00534v1-sentence-d541e7bc-2b38-494b-bc3f-4281e0c1558a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-cddb26e1-1a5d-4614-9941-dea73120573b",
+      "to": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-ad8b1205-7a7d-43f0-99ec-293ebe696a11"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-5685f4a4-0649-48dc-8b14-9141674e1096"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-3d93fe8e-b9b1-48a8-a716-4a8a6a7cfce3"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-8627d962-be11-4a8c-8347-d405b7032af3"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-4393c352-a120-4d8a-9fec-af0927dc862e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-1e2ad27f-ad76-48eb-ab84-9e7895deabb0"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-9c6ac268-052d-4b39-94fe-f623ea4ef2fd"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-02dc2196-f3ad-45a6-a7c5-05e2684a7a74"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-0d353ced-b116-48e8-b00d-937e8b825038"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-6cb906eb-5956-4c94-8cf3-3199a1f5e65d"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-da7caf54-79ad-4506-b127-461e87c7ce5d"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-a4207330-05e9-44f5-b059-b6bcf57816bf"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-9154453d-63ec-46b3-a6aa-f5de87b14b5e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-feabe916-ed57-445b-a33d-4078bb4a5a74"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-5e23848c-5d2f-41b6-98af-ca44a748f97a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-c04e2a1e-905f-4910-b012-f7885c633861"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-e995e534-1546-4a4f-9e3a-a2f90df93f4e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-166a494f-e29e-4d2f-bcc5-0214a9f9dc09"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-c655f4d6-e524-40d8-9409-8bfb620bcb03"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-d5c35503-5b2a-455e-bd35-ac1e2ee2a532"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-b9f78a7b-160d-4c39-ac80-90516090f18c"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-8faee992-2ea2-42ca-a294-fb19a0dde4dd"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-figure-5343804c-c3f1-402a-af43-bc77985138c7"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-figure-55c752be-44e8-4734-9f28-879657c321b6"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-7e8a67c3-ccc0-4ce5-ac34-5c12a2f10d45"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-8709cdcc-49a7-402c-9dda-3df0d90eb6da"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-d8522f39-0fbe-4a5c-be19-e8d41e7bf537"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-863f2f5b-f4b3-4f89-90e3-ca3cae65ddfd"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-3b0f773c-738e-41de-8e23-51c82e9c71a4"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-d23d8efc-5c75-43ea-8e76-0dfcd4d93eeb"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-a9045363-ff2e-4e2e-a4dc-829fff1c0ac6"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-b481ee15-0286-48f2-83f2-93c712e64547"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-2bcf57ff-eafe-4611-b6f0-b7b610ebda17"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-4942d775-c583-4eb0-b408-bf12792fe179"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-549e8f7d-d821-4eb6-96db-a0e9c85d48b1"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-5d140311-80cc-43d3-96e2-1f661d13eea5"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-d20061fa-3f7a-4666-a099-2e174a07fd6b"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-dceb1207-3f87-4e76-b7dd-994a6aaa94e2"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-d9c1283a-c3cf-4d21-9d52-ee9ecf8a969b"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-1f0d4f7d-e1a7-42e3-80ce-4c3b50ed31e5"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-7d478167-85f8-4d42-a82e-eba78af5ba67"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-b0a4dec2-8adc-4064-99c7-560428d8748f"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-410495ce-2f12-43d6-8829-d44dee629f03",
+      "to": "2403-00534-2403-00534v1-sentence-21b85414-af30-49c4-b062-692e78febf32"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-document-601ca67c-ffb5-4615-80b2-9a76803f50d5",
+      "to": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-68abaccd-ec2a-4f88-bcd1-d72c680dd368"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-54a80f56-3e96-4b60-9833-e0967a121fb8"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-b8febe9a-2e1f-49f7-be0e-b18e3acab224"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-c2ea47ad-0c44-4d17-a79e-d81e21a6861a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-309582ec-98d8-4945-9e2a-f06bef75a5cb"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-3283264b-bb44-49b2-913b-190b069c3cb2"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-4e7877aa-124e-4a58-9f17-79f85192b94a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-dce4bf59-fc67-4a3f-943d-9080dcec5563"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-4a384067-9c54-439b-b42f-973431c73d82"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-d88dfeeb-3d9b-4575-ad03-019aa26bca5b"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-f0079d3a-1d60-42cc-a2a9-2fcf5743e414"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-395d056a-6082-48a3-a022-dad52e2fb9f2"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-5492b7d2-3ce7-4e94-b221-cbfbe62bebbd"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-11c5baa9-fb61-4d1f-8bd9-b6a6bfd42288"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-e7cc3a3f-c24f-4e93-afc1-1ee582d61ffe"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-0b9bcda5-476e-485d-b993-fa8a6b97441e"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-1d8cc7dc-dfa6-4966-8e73-e4173cdef7c9"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-64900e6a-8f1d-4184-952b-4e29824ad548"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-4b063090-ffc6-4779-9378-cb9e55c6fece"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-cfb080b8-d51a-4769-b4b8-be673f3e88d3"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-036cd47e-2657-40e5-b377-570537f1ff62"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-15d94423-7fe7-4549-a585-6fed800b8bd8",
+      "to": "2403-00534-2403-00534v1-sentence-96df761b-e56c-497a-9e80-029ca672afe5"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-document-601ca67c-ffb5-4615-80b2-9a76803f50d5",
+      "to": "2403-00534-2403-00534v1-section-c0d45f50-da79-4a42-a509-2402b417aa68"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-c0d45f50-da79-4a42-a509-2402b417aa68",
+      "to": "2403-00534-2403-00534v1-sentence-222e72b5-e453-46ae-9a14-ca95c7bf25cf"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-c0d45f50-da79-4a42-a509-2402b417aa68",
+      "to": "2403-00534-2403-00534v1-subsection-9ca0c7a6-1f0c-4c83-bae6-36a9b23800b3"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-9ca0c7a6-1f0c-4c83-bae6-36a9b23800b3",
+      "to": "2403-00534-2403-00534v1-sentence-4ee6f1da-81b6-49e2-9946-7ed1ed91b9e1"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-9ca0c7a6-1f0c-4c83-bae6-36a9b23800b3",
+      "to": "2403-00534-2403-00534v1-sentence-a127b542-ec0b-449b-ad30-92e234b93358"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-9ca0c7a6-1f0c-4c83-bae6-36a9b23800b3",
+      "to": "2403-00534-2403-00534v1-sentence-59320bc4-ce68-43a6-a20c-276ff9a47c8c"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-9ca0c7a6-1f0c-4c83-bae6-36a9b23800b3",
+      "to": "2403-00534-2403-00534v1-sentence-5402bc2c-a7b6-4338-8619-4c9d72b08d43"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-9ca0c7a6-1f0c-4c83-bae6-36a9b23800b3",
+      "to": "2403-00534-2403-00534v1-sentence-ba68ab8c-feec-4871-b59e-0d45fffb1f5d"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-9ca0c7a6-1f0c-4c83-bae6-36a9b23800b3",
+      "to": "2403-00534-2403-00534v1-figure-125350a0-0627-4edb-8d08-4957086277a9"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-9ca0c7a6-1f0c-4c83-bae6-36a9b23800b3",
+      "to": "2403-00534-2403-00534v1-figure-61bdfc21-e024-41b9-97f2-618b820f707b"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-9ca0c7a6-1f0c-4c83-bae6-36a9b23800b3",
+      "to": "2403-00534-2403-00534v1-sentence-0dc3e9fa-6bba-4148-a59d-7408a12f0a5a"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-9ca0c7a6-1f0c-4c83-bae6-36a9b23800b3",
+      "to": "2403-00534-2403-00534v1-sentence-67e4d244-045a-4c16-8262-7d0b676582d3"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-section-c0d45f50-da79-4a42-a509-2402b417aa68",
+      "to": "2403-00534-2403-00534v1-subsection-7f4f7eb6-5ef8-4307-ad38-75e04aef8385"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-7f4f7eb6-5ef8-4307-ad38-75e04aef8385",
+      "to": "2403-00534-2403-00534v1-sentence-b4baed0e-aac7-424b-b75a-58e0794eeda3"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-7f4f7eb6-5ef8-4307-ad38-75e04aef8385",
+      "to": "2403-00534-2403-00534v1-sentence-045daa3c-fd4b-4ba6-9234-79fbc0762841"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-7f4f7eb6-5ef8-4307-ad38-75e04aef8385",
+      "to": "2403-00534-2403-00534v1-sentence-ef53a6dc-46e7-435c-8188-b92c3ed526be"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-7f4f7eb6-5ef8-4307-ad38-75e04aef8385",
+      "to": "2403-00534-2403-00534v1-figure-cbdcf57b-f873-4a63-a417-c0faf4308c04"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-7f4f7eb6-5ef8-4307-ad38-75e04aef8385",
+      "to": "2403-00534-2403-00534v1-figure-80cf23d3-772b-423e-b5cf-33752450c9d5"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-7f4f7eb6-5ef8-4307-ad38-75e04aef8385",
+      "to": "2403-00534-2403-00534v1-sentence-2007a239-7d16-4d29-a468-bb723bb44a07"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-7f4f7eb6-5ef8-4307-ad38-75e04aef8385",
+      "to": "2403-00534-2403-00534v1-sentence-53fa5a1b-07e7-446d-87e7-f20742d38526"
+    },
+    {
+      "from": "2403-00534-2403-00534v1-subsection-7f4f7eb6-5ef8-4307-ad38-75e04aef8385",
+      "to": "2403-00534-2403-00534v1-sentence-45aae965-d329-42ab-95e6-500c7fe1163b"
+    }
+  ],
+  "metadata": {
+    "total_nodes": 313,
+    "total_edges": 312
+  }
+}
