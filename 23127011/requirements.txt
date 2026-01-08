@@ -1,0 +1,17 @@
+# =============================================================================
+# LaTeX Paper Processing Pipeline - Requirements
+# =============================================================================
+# Install: pip install -r requirements.txt
+# =============================================================================
+
+# --- Core Dependencies ---
+bibtexparser>=1.4.0        # Parse BibTeX files (.bib, .bbl)
+scikit-learn>=1.0.0        # TF-IDF vectorizer, cosine similarity for matching
+numpy>=1.21.0              # Numerical operations
+
+# --- Utilities ---
+tqdm>=4.60.0               # Progress bars for pipeline execution
+
+# --- Optional: For Jupyter Notebooks ---
+jupyter>=1.0.0             # Run notebooks
+ipykernel>=6.0.0           # Jupyter kernel

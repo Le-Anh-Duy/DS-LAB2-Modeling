@@ -1,11 +1,31 @@
-# src/matcher.py
+"""
+Reference Matcher
+=================
+
+TF-IDF based reference matching với ground truth.
+"""
+
 import numpy as np
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from typing import Dict, Any, Optional
 
+
 class ReferenceMatcher:
+    """
+    So khớp extracted references với ground truth sử dụng TF-IDF cosine similarity.
+    
+    Attributes:
+        threshold: Ngưỡng score tối thiểu để chấp nhận match (mặc định: 0.55)
+        
+    Example:
+        >>> matcher = ReferenceMatcher(threshold=0.55)
+        >>> matcher.fit(ground_truth_refs)
+        >>> result = matcher.match(extracted_ref_text)
+        >>> print(result['score'], result['id'])
+    """
+    
     def __init__(self, threshold: float = 0.55):
         self.threshold = threshold
         self.vectorizer = TfidfVectorizer(
@@ -42,12 +62,14 @@ class ReferenceMatcher:
         return text
 
     def _extract_year(self, text: str) -> Optional[int]:
+        """Trích xuất năm từ text."""
         match = re.search(r'\b(19|20)\d{2}\b', text)
         if match:
             return int(match.group(0))
         return None
 
     def _extract_bibtex_title(self, raw_text: str) -> Optional[str]:
+        """Trích xuất title từ BibTeX entry."""
         match = re.search(r'title\s*=\s*[\{\"](.*?)(?=}?,|[\}\"]\s*$)', raw_text, re.IGNORECASE | re.DOTALL)
         if match:
             raw_title = match.group(1)
@@ -56,6 +78,12 @@ class ReferenceMatcher:
         return None
 
     def fit(self, ground_truth_refs: Dict[str, Any]):
+        """
+        Index ground truth references để chuẩn bị matching.
+        
+        Args:
+            ground_truth_refs: Dict với key là arxiv_id và value là metadata dict
+        """
         corpus = []
         self.candidates_meta = []
         self.title_lookup = {} 
@@ -94,7 +122,16 @@ class ReferenceMatcher:
                 pass
 
     def match(self, raw_ref_text: str) -> Optional[Dict[str, Any]]:
-        """Trả về Dict candidate có kèm key 'score'"""
+        """
+        Match một extracted reference với ground truth.
+        
+        Args:
+            raw_ref_text: Raw text của reference cần match
+            
+        Returns:
+            Dict với keys: 'id', 'meta', 'year', 'score'
+            Hoặc None nếu không tìm thấy match phù hợp
+        """
         if not self.is_fitted:
             return None
         
@@ -103,7 +140,6 @@ class ReferenceMatcher:
         if extracted_title:
             clean_extracted_title = self._clean_text(extracted_title)
             if clean_extracted_title in self.title_lookup:
-                # Tìm thấy chính xác -> Điểm tuyệt đối 1.0 (100/100)
                 result = self.title_lookup[clean_extracted_title].copy()
                 result['score'] = 1.0 
                 return result
@@ -118,7 +154,7 @@ class ReferenceMatcher:
         raw_year = self._extract_year(raw_ref_text)
 
         for idx in top_k_indices:
-            score = float(scores[idx]) # Chuyển numpy float sang python float
+            score = float(scores[idx])
             candidate = self.candidates_meta[idx]
             cand_year = candidate['year']
 
@@ -130,7 +166,6 @@ class ReferenceMatcher:
                 if abs(raw_year - cand_year) > 2:
                     continue 
 
-            # Tìm thấy qua TF-IDF -> Trả về điểm tương đồng (VD: 0.75)
             result = candidate.copy()
             result['score'] = score
             return result

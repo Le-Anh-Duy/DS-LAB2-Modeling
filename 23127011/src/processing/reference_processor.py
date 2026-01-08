@@ -1,21 +1,41 @@
+"""
+Reference Processor
+===================
+
+Xử lý và trích xuất references từ LaTeX content.
+"""
+
 import os
 import re
 import logging
 import bibtexparser
 from bibtexparser.bparser import BibTexParser
 
-# Cấu hình logger cho module này
-# __name__ giúp logger tự động lấy tên theo namespace (ví dụ: project.parser)
 logger = logging.getLogger(__name__)
 
+
 class ReferenceProcessor:
-    def __init__(self, paper_id, version, root_dir):
+    """
+    Trích xuất và xử lý references từ LaTeX content.
+    
+    Hỗ trợ:
+    - File .bib (BibTeX database)
+    - File .bbl (BibTeX output)
+    - Embedded \\bibitem trong .tex
+    
+    Example:
+        >>> processor = ReferenceProcessor(paper_id, version, version_dir)
+        >>> content, refs = processor.process_references(flattened_latex)
+        >>> print(f"Found {len(refs)} references")
+    """
+    
+    def __init__(self, paper_id: str, version: str, root_dir: str):
         self.paper_id = paper_id
         self.version = version
         self.root_dir = root_dir
         
         self.raw_refs = {} 
-        self.MAX_FILE_SIZE = 5 * 1024 * 1024
+        self.MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
         
         # --- PRE-COMPILED REGEX ---
         self.REGEX_CITE = re.compile(
@@ -31,7 +51,16 @@ class ReferenceProcessor:
             re.DOTALL | re.IGNORECASE
         )
 
-    def process_references(self, flat_content):
+    def process_references(self, flat_content: str):
+        """
+        Trích xuất references từ flattened LaTeX content.
+        
+        Args:
+            flat_content: Nội dung LaTeX đã được flatten
+            
+        Returns:
+            Tuple[str, List[dict]]: (content, list of reference dicts)
+        """
         # 1. CHUẨN HÓA SƠ BỘ
         norm_content = re.sub(r'\s+', ' ', flat_content)
         
@@ -72,7 +101,6 @@ class ReferenceProcessor:
         # --- BƯỚC 4: FILTER ---
         final_refs = []
         if not used_keys:
-            # Dùng warning để báo hiệu điều bất thường nhưng không gây crash
             logger.warning("No citations found in text. Returning all parsed references as fallback.")
             final_refs = list(self.raw_refs.values())
         else:
@@ -86,7 +114,8 @@ class ReferenceProcessor:
 
     # --- HELPER METHODS ---
 
-    def _try_parse_bib(self, path, filename):
+    def _try_parse_bib(self, path: str, filename: str):
+        """Parse file .bib"""
         try:
             file_size = os.path.getsize(path)
             if file_size > self.MAX_FILE_SIZE:
@@ -114,10 +143,10 @@ class ReferenceProcessor:
                 logger.debug(f"Parsed {count_new} entries from {filename}")
 
         except Exception as e:
-            # Log lỗi thay vì pass để dễ debug nếu file bib lỗi cú pháp
             logger.warning(f"Failed to parse .bib file {filename}: {str(e)}")
 
-    def _try_parse_bbl(self, path, filename):
+    def _try_parse_bbl(self, path: str, filename: str):
+        """Parse file .bbl"""
         try:
             with open(path, 'r', encoding='utf-8', errors='ignore') as f:
                 content = f.read()
@@ -126,13 +155,13 @@ class ReferenceProcessor:
         except Exception as e:
             logger.warning(f"Failed to parse .bbl file {filename}: {str(e)}")
 
-    def _parse_bibitem_content_optimized(self, text, source_type="bibitem"):
+    def _parse_bibitem_content_optimized(self, text: str, source_type: str = "bibitem"):
+        """Parse \\bibitem entries từ text."""
         chunks = re.split(r'\\bibitem', text, flags=re.IGNORECASE)
         if len(chunks) < 2: return 
 
         count = 0
         for chunk in chunks[1:]:
-            # Tái tạo chuỗi để match header
             reconstructed = r'\bibitem' + chunk 
             match = self.REGEX_BIBITEM_HEADER.match(reconstructed)
             if match:
@@ -154,7 +183,8 @@ class ReferenceProcessor:
         if count > 0:
              logger.debug(f"Parsed {count} items from {source_type}")
 
-    def _dict_to_bibtex_string(self, entry):
+    def _dict_to_bibtex_string(self, entry: dict) -> str:
+        """Chuyển dict entry thành BibTeX string."""
         lines = [f"@{entry.get('ENTRYTYPE', 'misc')}{{{entry.get('ID', '')},"]
         lines.extend([f"  {k} = {{{v}}}," for k, v in entry.items() if k not in ['ENTRYTYPE', 'ID']])
         lines.append("}")

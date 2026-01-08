@@ -3,7 +3,7 @@ import os
 import json
 import bibtexparser
 from tqdm import tqdm
-from matcher import ReferenceMatcher
+from .matching import ReferenceMatcher
 
 def load_extracted_refs_from_bib(bib_path):
     """

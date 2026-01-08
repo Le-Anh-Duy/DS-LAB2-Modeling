@@ -5,9 +5,9 @@ import uuid
 import re
 import concurrent.futures
 import logging
-from src.parser import LatexFlattener, LatexStructureBuilder, LatexContentProcessor, find_root_tex_file
-from src.cleaner import ReferenceProcessor
-from src.deduplicator import ReferenceDeduplicator, ContentDeduplicator, replace_citations_in_text
+
+from .parser import LatexFlattener, LatexStructureBuilder, LatexContentProcessor, find_root_tex_file
+from .processing import ReferenceProcessor, ReferenceDeduplicator, ContentDeduplicator, replace_citations_in_text
 
 def process_single_paper(paper_id, data_raw_path, data_output_path):
     """
