@@ -64,8 +64,8 @@ class LatexFlattener:
         self.paper_id = paper_id
         self.version = version
         self.remove_references = remove_references
-        print(f"📝 Khởi tạo LatexFlattener cho Paper: {self.paper_id}, Version: {self.version}")
-        print(f"   Remove references: {'Yes' if self.remove_references else 'No'}")
+        # print(f"📝 Khởi tạo LatexFlattener cho Paper: {self.paper_id}, Version: {self.version}")
+        # print(f"   Remove references: {'Yes' if self.remove_references else 'No'}")
         self.merged_files = [] # Danh sách các file đã gộp thành công
         self.missing_files = [] # Danh sách các file bị thiếu
 
@@ -744,7 +744,6 @@ class LatexContentProcessor:
         Input: Text vùng preamble.
         Output: List các Node (Title Node, Author Node, Abstract Node)
         """
-        print("🔍 Xử lý Preamble để trích xuất Title, Authors, Abstract...")
         nodes = []
         cleaner = LatexCleaner()
         # 1. Trích xuất Title (Leaf Node)

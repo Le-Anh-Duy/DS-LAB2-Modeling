@@ -1,8 +1,12 @@
 import os
 import re
+import logging
 import bibtexparser
 from bibtexparser.bparser import BibTexParser
-from TexSoup import TexSoup
+
+# Cấu hình logger cho module này
+# __name__ giúp logger tự động lấy tên theo namespace (ví dụ: project.parser)
+logger = logging.getLogger(__name__)
 
 class ReferenceProcessor:
     def __init__(self, paper_id, version, root_dir):
@@ -11,102 +15,91 @@ class ReferenceProcessor:
         self.root_dir = root_dir
         
         self.raw_refs = {} 
+        self.MAX_FILE_SIZE = 5 * 1024 * 1024
         
-        # Regex tìm Citation Keys (Fallback)
-        self.REGEX_CITE_FALLBACK = re.compile(r'\\cite[a-z]*\s*(?:\[.*?\])?\s*\{([^}]+)\}', re.IGNORECASE)
-
-        # Regex tìm khối Bibliography Embedded (Quan trọng cho trường hợp của bạn)
-        # Tìm từ \begin{thebibliography} đến \end{thebibliography} bất chấp nội dung ở giữa
+        # --- PRE-COMPILED REGEX ---
+        self.REGEX_CITE = re.compile(
+            r'\\cite[a-zA-Z]*\s*(?:\[[^\]]*\])?\s*\{([^}]+)\}', 
+            re.IGNORECASE | re.DOTALL
+        )
         self.REGEX_THEBIB_BLOCK = re.compile(
-            r'(\\begin\s*\{thebibliography\}.*?\\end\s*\{thebibliography\})', 
+            r'\\begin\s*\{thebibliography\}.*?\\end\s*\{thebibliography\}', 
             re.DOTALL | re.IGNORECASE
         )
-
-        # Regex BibItem (Sentinel Trick)
-        self.REGEX_BIBITEM = re.compile(
-            r'\\bibitem\s*(?:\[(.*?)\])?\s*\{(.*?)\}\s*(.*?)(?=(?:\\bibitem)|(?:\\end\{thebibliography\})|\Z)', 
+        self.REGEX_BIBITEM_HEADER = re.compile(
+            r'^\\bibitem\s*(?:\[(.*?)\])?\s*\{(.*?)\}\s*(.*)', 
             re.DOTALL | re.IGNORECASE
         )
 
     def process_references(self, flat_content):
         # 1. CHUẨN HÓA SƠ BỘ
-        # Biến mọi xuống dòng thành space để tránh bị ngắt dòng làm trượt regex
         norm_content = re.sub(r'\s+', ' ', flat_content)
         
-        print(f"   🔍 Scanning references for {self.version}...")
+        logger.info(f"Scanning references for {self.version}...")
 
         # --- BƯỚC 1: TRÍCH XUẤT NHU CẦU (USED KEYS) ---
         used_keys = set()
-        texsoup_success = False
-        
-        # Thử TexSoup (Ưu tiên)
-        try:
-            # Fix lỗi $$ để TexSoup chạy xa hơn
-            sanitized_content = re.sub(r'\$\$(.*?)\$\$', r'\\[\1\\]', flat_content, flags=re.DOTALL)
-            soup = TexSoup(sanitized_content)
-            
-            citation_cmds = soup.find_all(['cite', 'citet', 'citep', 'nocite', 'citeauthor', 'citeyear'])
-            for cmd in citation_cmds:
-                if cmd.args:
-                    key_str = str(cmd.args[-1].string)
-                    if key_str:
-                        for k in key_str.split(','): used_keys.add(k.strip())
-            texsoup_success = True
-        except Exception:
-            pass
+        for match in self.REGEX_CITE.finditer(norm_content):
+            keys_str = match.group(1)
+            if keys_str:
+                for k in keys_str.split(','):
+                    k_clean = k.strip()
+                    if k_clean:
+                        used_keys.add(k_clean)
 
-        # Fallback Regex cho Citation
-        if not texsoup_success or len(used_keys) == 0:
-            print(f"      ⚠️ Citation fallback triggered.")
-            for match in self.REGEX_CITE_FALLBACK.finditer(norm_content):
-                keys = match.group(1).split(',')
-                for k in keys: used_keys.add(k.strip())
-        
-        print(f"      Found {len(used_keys)} cited keys in text.")
+        logger.info(f"Found {len(used_keys)} cited keys (Regex engine).")
 
         # --- BƯỚC 2: VÉT CẠN FILE NGOÀI (.bib/.bbl) ---
-        all_files = os.listdir(self.root_dir)
-        candidate_files = [f for f in all_files if f.lower().endswith(('.bbl', '.bib'))]
-        for filename in candidate_files:
-            if filename.lower().endswith('.bib'): self._try_parse_bib(filename)
-            elif filename.lower().endswith('.bbl'): self._try_parse_bbl(filename)
+        if os.path.exists(self.root_dir):
+            with os.scandir(self.root_dir) as entries:
+                for entry in entries:
+                    if not entry.is_file(): continue
+                    
+                    fname_lower = entry.name.lower()
+                    if fname_lower.endswith('.bib'):
+                        self._try_parse_bib(entry.path, entry.name)
+                    elif fname_lower.endswith('.bbl'):
+                        self._try_parse_bbl(entry.path, entry.name)
 
-        # --- BƯỚC 3: XỬ LÝ EMBEDDED (FIX QUAN TRỌNG) ---
-        # Thay vì tin TexSoup, ta dùng Regex cắt khối thebibliography ra
-        
-        # Cách 1: Tìm khối \begin{thebibliography} trong content gốc
-        block_match = self.REGEX_THEBIB_BLOCK.search(flat_content)
+        # --- BƯỚC 3: XỬ LÝ EMBEDDED ---
+        block_match = self.REGEX_THEBIB_BLOCK.search(norm_content)
         if block_match:
-            block_content = block_match.group(1)
-            norm_block = re.sub(r'\s+', ' ', block_content)
-            self._parse_bibitem_content(norm_block, source_type="embedded_block")
+            self._parse_bibitem_content_optimized(block_match.group(0), source_type="embedded_block")
         else:
-            # Cách 2: Nếu không có block (hoặc regex block trượt), quét toàn bộ content đã chuẩn hóa
-            self._parse_bibitem_content(norm_content, source_type="embedded_fullscan")
+            if r'\bibitem' in norm_content:
+                self._parse_bibitem_content_optimized(norm_content, source_type="embedded_fullscan")
 
         # --- BƯỚC 4: FILTER ---
         final_refs = []
-        if len(used_keys) == 0:
-             # Safety Net: Không tìm thấy cite nào thì lấy hết refs
+        if not used_keys:
+            # Dùng warning để báo hiệu điều bất thường nhưng không gây crash
+            logger.warning("No citations found in text. Returning all parsed references as fallback.")
             final_refs = list(self.raw_refs.values())
         else:
             is_wildcard = '*' in used_keys
             for key, ref_obj in self.raw_refs.items():
                 if is_wildcard or key in used_keys:
                     final_refs.append(ref_obj)
-        
-        print(f"      Matched {len(final_refs)} references.")
+            
+        logger.info(f"Matched {len(final_refs)} references out of {len(self.raw_refs)} total candidates.")
         return flat_content, final_refs
 
-    # --- CÁC HÀM PHỤ TRỢ (HELPER) ---
-    def _try_parse_bib(self, filename):
-        path = os.path.join(self.root_dir, filename)
+    # --- HELPER METHODS ---
+
+    def _try_parse_bib(self, path, filename):
         try:
+            file_size = os.path.getsize(path)
+            if file_size > self.MAX_FILE_SIZE:
+                logger.warning(f"Skipping large file: {filename} ({file_size/1024/1024:.2f} MB)")
+                return
+            
             with open(path, 'r', encoding='utf-8', errors='ignore') as f:
                 parser = BibTexParser(common_strings=True)
                 parser.ignore_nonstandard_types = True
                 parser.homogenise_fields = False
                 db = bibtexparser.load(f, parser=parser)
+                
+            count_new = 0
             for entry in db.entries:
                 key = entry.get('ID', '').strip()
                 if key and key not in self.raw_refs:
@@ -116,46 +109,53 @@ class ReferenceProcessor:
                         "type": f"bib_{entry.get('ENTRYTYPE', 'misc').lower()}",
                         "source": filename
                     }
-        except Exception: pass
+                    count_new += 1
+            if count_new > 0:
+                logger.debug(f"Parsed {count_new} entries from {filename}")
 
-    def _try_parse_bbl(self, filename):
-        path = os.path.join(self.root_dir, filename)
+        except Exception as e:
+            # Log lỗi thay vì pass để dễ debug nếu file bib lỗi cú pháp
+            logger.warning(f"Failed to parse .bib file {filename}: {str(e)}")
+
+    def _try_parse_bbl(self, path, filename):
         try:
             with open(path, 'r', encoding='utf-8', errors='ignore') as f:
                 content = f.read()
             norm_content = re.sub(r'\s+', ' ', content)
-            self._parse_bibitem_content(norm_content, source_type=filename)
-        except Exception: pass
+            self._parse_bibitem_content_optimized(norm_content, source_type=filename)
+        except Exception as e:
+            logger.warning(f"Failed to parse .bbl file {filename}: {str(e)}")
 
-    def _parse_bibitem_content(self, text, source_type="bibitem"):
-        # SENTINEL TRICK: Thêm mốc giả để lookahead bắt được item cuối
-        text += " \\bibitem{SENTINEL_MARKER_FIX} "
-        
-        matches = self.REGEX_BIBITEM.findall(text)
+    def _parse_bibitem_content_optimized(self, text, source_type="bibitem"):
+        chunks = re.split(r'\\bibitem', text, flags=re.IGNORECASE)
+        if len(chunks) < 2: return 
+
         count = 0
-        for label, key, content in matches:
-            clean_key = key.strip()
-            if clean_key == "SENTINEL_MARKER_FIX": continue
-            
-            if clean_key and clean_key not in self.raw_refs:
-                # Clean content
-                content = re.sub(r'\\end\s*\{thebibliography\}.*$', '', content, flags=re.IGNORECASE).strip()
-                content = re.sub(r'\s+', ' ', content).strip()
-                
-                self.raw_refs[clean_key] = {
-                    "key": clean_key,
-                    "raw_text": content,
-                    "type": "bibitem",
-                    "source": source_type
-                }
-                count += 1
+        for chunk in chunks[1:]:
+            # Tái tạo chuỗi để match header
+            reconstructed = r'\bibitem' + chunk 
+            match = self.REGEX_BIBITEM_HEADER.match(reconstructed)
+            if match:
+                key = match.group(2).strip()
+                content = match.group(3)
+                if r'\end' in content:
+                    content = content.split(r'\end')[0]
+                content = content.strip()
+
+                if key and key not in self.raw_refs:
+                    self.raw_refs[key] = {
+                        "key": key,
+                        "raw_text": content,
+                        "type": "bibitem",
+                        "source": source_type
+                    }
+                    count += 1
+        
         if count > 0:
-             print(f"         -> Parsed {count} items from {source_type}")
+             logger.debug(f"Parsed {count} items from {source_type}")
 
     def _dict_to_bibtex_string(self, entry):
         lines = [f"@{entry.get('ENTRYTYPE', 'misc')}{{{entry.get('ID', '')},"]
-        for k, v in entry.items():
-            if k in ['ENTRYTYPE', 'ID']: continue
-            lines.append(f"  {k} = {{{v}}},")
+        lines.extend([f"  {k} = {{{v}}}," for k, v in entry.items() if k not in ['ENTRYTYPE', 'ID']])
         lines.append("}")
         return "\n".join(lines)

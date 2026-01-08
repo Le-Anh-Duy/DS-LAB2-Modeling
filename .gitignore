@@ -35,8 +35,10 @@ env/
 # Không bao giờ push dữ liệu thô và kết quả lên Git
 data_raw/
 data_raw_real/
+data_raw_real_zip/
 data_output_v1/
 output/
+data*/
 
 # Bỏ qua các file dữ liệu nếu lỡ nằm ngoài thư mục data
 *.json
