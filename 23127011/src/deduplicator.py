@@ -83,6 +83,13 @@ class ReferenceDeduplicator:
             
         return bib_content
 
+    def get_all_deduplicated_refs(self):
+        """
+        Trả về danh sách các reference duy nhất để phục vụ Matching.
+        Output format: list of dict {'canonical_key', 'raw_text', ...}
+        """
+        return list(self.unique_refs_pool.values())
+    
 class ContentDeduplicator:
     def __init__(self):
         # elements: { "id": "content string" }
