@@ -90,6 +90,42 @@ def normalize_id(text: str) -> str:
     return re.sub(r'[\.\-\/]', '', str(text).lower())
 
 
+def is_valid_title(text: str) -> bool:
+    """
+    Kiểm tra xem text có phải là title hợp lệ không.
+    Loại bỏ các trường hợp: arXiv ID, DOI link, quá ngắn.
+    
+    Args:
+        text: Chuỗi cần kiểm tra
+        
+    Returns:
+        True nếu là title hợp lệ
+    """
+    if not text or len(text.strip()) < 5:
+        return False
+    
+    text_lower = text.strip().lower()
+    
+    # Không phải arXiv ID (format: YYMM.NNNNN)
+    if re.match(r'^\d{4}\.\d{4,5}$', text.strip()):
+        return False
+    
+    # Không phải DOI link
+    if 'doi.org' in text_lower or text_lower.startswith('doi:'):
+        return False
+    
+    # Không phải URL
+    if text_lower.startswith('http') or '\\href' in text_lower or '\\path' in text_lower:
+        return False
+    
+    # Phải có ít nhất 2 từ (title thông thường)
+    words = text.split()
+    if len(words) < 2:
+        return False
+    
+    return True
+
+
 # =============================================================================
 # BIBTEX PARSING FUNCTIONS
 # =============================================================================
@@ -162,8 +198,10 @@ def parse_bibtex_smart(bib_string: str) -> Dict[str, Any]:
             if bib_db.entries:
                 entry = bib_db.entries[0]
                 
-                # Title
-                parsed_data['title'] = clean_latex(entry.get('title', ''))
+                # Title - validate trước khi gán
+                candidate_title = clean_latex(entry.get('title', ''))
+                if is_valid_title(candidate_title):
+                    parsed_data['title'] = candidate_title
                 
                 # Author
                 raw_authors = entry.get('author', '')
@@ -181,7 +219,9 @@ def parse_bibtex_smart(bib_string: str) -> Dict[str, Any]:
                 if not parsed_data['year']:
                     parsed_data['year'] = entry.get('year', '')
                 
-                return parsed_data
+                # Chỉ return nếu có title hợp lệ
+                if parsed_data['title']:
+                    return parsed_data
         except:
             pass
 
@@ -199,9 +239,11 @@ def parse_bibtex_smart(bib_string: str) -> Dict[str, Any]:
                 for a in raw_author_str.split(',')
             ]
 
-            # Title (phần thứ 2)
+            # Title (phần thứ 2) - validate trước khi gán
             if len(parts) > 1:
-                parsed_data['title'] = clean_latex(parts[1].strip())
+                candidate_title = clean_latex(parts[1].strip())
+                if is_valid_title(candidate_title):
+                    parsed_data['title'] = candidate_title
             
             # Year (từ phần cuối)
             if not parsed_data['year']:
@@ -209,15 +251,19 @@ def parse_bibtex_smart(bib_string: str) -> Dict[str, Any]:
                 if simple_match:
                     parsed_data['year'] = simple_match.group(0)
 
-            return parsed_data
+            # Chỉ return nếu có title hợp lệ
+            if parsed_data['title']:
+                return parsed_data
         except:
             pass
             
     # --- BƯỚC 4: FALLBACK REGEX ---
-    if not parsed_data['title']:
+    if not parsed_data['title'] or not is_valid_title(parsed_data['title']):
         title_match = P_TITLE.search(bib_string)
         if title_match:
-            parsed_data['title'] = clean_latex(title_match.group(1))
+            candidate_title = clean_latex(title_match.group(1))
+            if is_valid_title(candidate_title):
+                parsed_data['title'] = candidate_title
     
     if not parsed_data['authors']:
         author_match = P_AUTHOR.search(bib_string)
@@ -233,6 +279,11 @@ def parse_bibtex_smart(bib_string: str) -> Dict[str, Any]:
         fallback_match = P_YEAR_SIMPLE.search(bib_string)
         if fallback_match:
             parsed_data['year'] = fallback_match.group(0)
+
+    # --- BƯỚC 6: FINAL VALIDATION ---
+    # Nếu title vẫn không hợp lệ, đặt về rỗng để tránh misleading
+    if not is_valid_title(parsed_data['title']):
+        parsed_data['title'] = ""
 
     return parsed_data
 
