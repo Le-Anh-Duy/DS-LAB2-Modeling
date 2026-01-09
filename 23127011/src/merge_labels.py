@@ -5,25 +5,26 @@ import random
 from typing import List, Dict
 
 # ==============================================================================
-# CẤU HÌNH ĐƯỜNG DẪN
+# CẤU HÌNH ĐƯỜNG DẪN MẶC ĐỊNH
 # ==============================================================================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# Sửa lại đường dẫn này trỏ tới folder data_output của bạn
-INPUT_DIR_PATH = os.path.join(BASE_DIR, '../../data_output_v2') 
-
-OUTPUT_DIR = os.path.join(BASE_DIR, '../../dataset_final')
+DEFAULT_INPUT_DIR = os.path.join(BASE_DIR, '../../data_output_v2') 
+DEFAULT_OUTPUT_DIR = os.path.join(BASE_DIR, '../../dataset_final')
 # ==============================================================================
 
-def load_selected_papers(folder_names: List[str]) -> Dict[str, List[dict]]:
+def load_selected_papers(input_dir: str, folder_names: List[str]) -> Dict[str, List[dict]]:
     """
     Đọc dữ liệu từ danh sách folder đã được lọc (Limit/Range).
+    
+    Args:
+        input_dir: Đường dẫn thư mục chứa data
+        folder_names: Danh sách tên folder cần load
     """
     papers_map = {}
     print(f"🔄 Loading data from {len(folder_names)} folders...")
 
     for folder_name in folder_names:
-        file_path = os.path.join(INPUT_DIR_PATH, folder_name, 'labels.json')
+        file_path = os.path.join(input_dir, folder_name, 'labels.json')
         if not os.path.exists(file_path): continue
         
         try:
@@ -47,13 +48,25 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Split dataset into Auto/Manual with Limits.")
     parser.add_argument("--yymm", type=str, required=True, help="yymm prefix (e.g., 2403)")
     
+    # --- OPTION ĐƯỜNG DẪN ---
+    parser.add_argument("--input", type=str, default=DEFAULT_INPUT_DIR,
+                        help=f"Input directory path (default: {DEFAULT_INPUT_DIR})")
+    parser.add_argument("--output", type=str, default=DEFAULT_OUTPUT_DIR,
+                        help=f"Output directory path (default: {DEFAULT_OUTPUT_DIR})")
+    
     # --- OPTION GIỚI HẠN SỐ LƯỢNG ---
     parser.add_argument("--limit", type=int, help="Chỉ lấy ngẫu nhiên N bài (VD: 50)")
     parser.add_argument("--range", type=int, nargs=2, help="Lấy từ index A đến B (VD: 0 100)")
     
     args = parser.parse_args()
+    
+    # Sử dụng paths từ arguments
+    INPUT_DIR_PATH = os.path.abspath(args.input)
+    OUTPUT_DIR = os.path.abspath(args.output)
 
-    print(f"📂 Scanning Input Directory: {INPUT_DIR_PATH}")
+    print(f"📂 Input Directory:  {INPUT_DIR_PATH}")
+    print(f"📂 Output Directory: {OUTPUT_DIR}")
+    
     if not os.path.exists(INPUT_DIR_PATH):
         print(f"❌ Error: Path not found!")
         exit(1)
@@ -103,7 +116,7 @@ if __name__ == "__main__":
     print(f"   👉 Processing subset of {len(target_folders)} papers.")
 
     # 3. LOAD DỮ LIỆU (Chỉ load những bài đã lọc)
-    papers_db = load_selected_papers(target_folders)
+    papers_db = load_selected_papers(INPUT_DIR_PATH, target_folders)
     all_loaded_ids = list(papers_db.keys())
     
     if not all_loaded_ids:
