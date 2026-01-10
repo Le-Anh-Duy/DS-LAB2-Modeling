@@ -2,7 +2,7 @@
 
 Pipeline xử lý và trích xuất dữ liệu từ các bài báo khoa học viết bằng LaTeX.
 
-## 📁 Cấu trúc thư mục
+## Cấu trúc thư mục
 
 ```
 src/
@@ -37,7 +37,7 @@ src/
 └── deduplicator.py      # ReferenceDeduplicator, ContentDeduplicator
 ```
 
-## 🚀 Cách sử dụng
+## Cách sử dụng
 
 ### 1. Sử dụng trong Python
 
@@ -87,22 +87,22 @@ python -m src.main --merge --yymm 2403 --limit 50
 
 Xem file `notebooks/full_pipeline_tutorial.ipynb` để biết cách sử dụng chi tiết với hướng dẫn từng bước.
 
-## 📊 Pipeline Flow
+## Pipeline Flow
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                           FULL PIPELINE                                  │
+│                           FULL PIPELINE                                 │
 ├─────────────────────────────────────────────────────────────────────────┤
-│                                                                          │
+│                                                                         │
 │  ┌───────────────┐    ┌───────────────┐    ┌───────────────┐            │
 │  │   DATA RAW    │ -> │   PHASE 1     │ -> │   PHASE 2     │            │
 │  │  (LaTeX .tex) │    │  Processing   │    │   Matching    │            │
 │  └───────────────┘    └───────────────┘    └───────────────┘            │
-│                              │                    │                      │
-│                              v                    v                      │
-│                       hierarchy.json        labels.json                  │
-│                       refs.bib                                           │
-│                                                                          │
+│                              │                    │                     │
+│                              v                    v                     │
+│                       hierarchy.json        labels.json                 │
+│                       refs.bib                                          │
+│                                                                         │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -126,7 +126,7 @@ Xem file `notebooks/full_pipeline_tutorial.ipynb` để biết cách sử dụng
 2. **Split**: Chia train/val/test
 3. **Export**: `auto.json`, `manual.json`
 
-## 📦 Input Format
+## Input Format
 
 ```
 data_raw/
@@ -145,7 +145,7 @@ data_raw/
 │   └── ...
 ```
 
-## 📤 Output Format
+## Output Format
 
 ```
 data_output/
@@ -159,7 +159,7 @@ data_output/
 │   └── ...
 ```
 
-## ⚙️ Configuration
+## Configuration
 
 ```python
 from src.config import PipelineConfig, create_config
@@ -176,7 +176,7 @@ config = create_config(
 print(config)
 ```
 
-## 📋 Requirements
+## Requirements
 
 ```
 bibtexparser
@@ -190,7 +190,3 @@ Cài đặt:
 pip install -r requirements.txt
 ```
 
-## 👤 Author
-
-- **Student ID**: 23127011
-- **Version**: 1.0.0
