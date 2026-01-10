@@ -111,5 +111,6 @@ The script generates the following files in `[output_dir]/[Student_ID]/[yymm-id]
 * **Source Code:** All logic is implemented in `src/`. No external pre-trained LLMs were used for the core parsing logic (using only regex).
 * **Data:** The `data_raw` and `data_output` folders are excluded from this zip file to reduce size, as per instructions.
 * **Reproducibility:** The code uses a fixed random seed in the ML pipeline for consistent results.
+* *Submission*: The submited code was in ./23127011 folder other folders is just for testing and verification.
 
 ---
