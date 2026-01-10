@@ -1,8 +1,8 @@
 # Introduction to Data Science - Milestone 2
 ## Hierarchical Parsing and Reference Matching Pipeline
 
-**Student Name:** [Your Full Name]
-**Student ID:** [Your Student ID]
+**Student Name:** Lê Anh Duy
+**Student ID:** 23127011
 **Course:** Introduction to Data Science (KHDL2)
 
 ---
@@ -72,19 +72,6 @@ Ensure the raw data (folder of LaTeX sources) is placed in a `data_raw` director
 
 You can run the entire pipeline (Parsing -> Labeling -> Training -> Prediction) using the `main.py` script.
 
-**Basic Command:**
-
-```bash
-python src/main.py --input_dir data_raw --output_dir data_output
-
-```
-
-**Arguments:**
-
-* `--input_dir`: Path to the raw LaTeX folders.
-* `--output_dir`: Path where the structured JSON results will be saved.
-* `--train`: (Optional) Flag to trigger ML training and prediction.
-
 ### Output
 
 The script generates the following files in `[output_dir]/[Student_ID]/[yymm-id]/`:
@@ -121,26 +108,8 @@ The script generates the following files in `[output_dir]/[Student_ID]/[yymm-id]
 
 ## 6. Notes for Graders
 
-* **Source Code:** All logic is implemented in `src/`. No external pre-trained LLMs were used for the core parsing logic.
+* **Source Code:** All logic is implemented in `src/`. No external pre-trained LLMs were used for the core parsing logic (using only regex).
 * **Data:** The `data_raw` and `data_output` folders are excluded from this zip file to reduce size, as per instructions.
 * **Reproducibility:** The code uses a fixed random seed in the ML pipeline for consistent results.
 
 ---
-
-## 7. Contact
-
-* **Name:** [Your Name]
-* **Email:** [Your Email]
-
-```
-
-### Giải thích các phần quan trọng trong README này:
-
-1.  [cite_start]**Environment Setup[cite: 176]:** Hướng dẫn cài đặt `pip install -r requirements.txt` là bắt buộc để giám khảo có thể chạy code của bạn.
-2.  [cite_start]**Usage Instructions[cite: 178]:** Tôi đã giả định bạn có file `src/main.py`. Đây là cách chuyên nghiệp nhất để chạy dự án. Bạn chỉ cần code file `main.py` nhận tham số đầu vào là xong.
-3.  **Implementation Highlights:** Phần này giúp bạn "khoe" khéo các tính năng đã xử lý theo Q&A (như Recursive parsing, xử lý file .bbl, deduplication). Điều này tạo ấn tượng tốt rằng bạn hiểu sâu vấn đề.
-4.  **Notes for Graders:** Xác nhận lại việc tuân thủ quy tắc (không dùng LLM chui, không nộp data rác).
-
-Bạn hãy điền tên và MSSV vào các chỗ `[brackets]` rồi lưu lại nhé!
-
-```
